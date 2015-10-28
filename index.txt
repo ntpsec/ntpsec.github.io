@@ -38,6 +38,6 @@ link:channels.html[Communications channels]
 
 link:FAQ.html[The inevitable FAQ]
 
-link:history.html[How NTPsec came to be]
+//link:history.html[How NTPsec came to be]
 
 //end
