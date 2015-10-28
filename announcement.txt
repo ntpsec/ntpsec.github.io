@@ -52,7 +52,7 @@ Team] page.
 
 image::clocktower64.png[align="center"]
 
-Have questions? Our public contact is John D. Bell <jdb@systemsartisans.com>,
-Google phone 567-343-0164>, or via IRC at Freenode channel #icei.
+Have questions? Our public contact is mailto:outreach@icei.org[John D. Bell],
+Google phone 567-343-0164, or via IRC at Freenode channel #icei.
 
 // end

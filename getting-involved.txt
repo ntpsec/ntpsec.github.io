@@ -31,7 +31,7 @@ specialized and expensive.
 
 Accurate time is the beating pulse of the Internetted world economy.
 If you are a business or government agency or wealthy individual that
-relies on the Internet, you rely on NTP.  We accept tax-deductible
+relies on the Internet, you rely on NTP.  We accept
 donations through the link://icei.org[Internet Civil Engineering
 Institute].  Please give generously - the civilization you
 save may be your own.
