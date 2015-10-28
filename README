@@ -1,7 +1,17 @@
 This is the directory of document masters which, when published, becomes
 the ntpsec website.
 
-Run 'rebuild' to generate pages and point your browser at index.html.
+Edit cycle:
+
+1. Modify the asciidoc.
+
+2. Run 'rebuild' to generate HTML from the masters.
+
+3. Commit everything, then push.
+
+The github.io site ignores the .txt files and makes the HTML visible.
+
+The HTML is normally write-locked to remind you not to modify it.
 
 
 

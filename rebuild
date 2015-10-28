@@ -8,6 +8,8 @@ do
     if [ ! -f $html -o $html -ot $master ]
     then
 	echo "Rebuilding $html"
+	chmod u+w $html
 	asciidoc -b html5 -a linkcss -a stylesdir=$PWD $master
+	chmod a-w $html
     fi
 done
