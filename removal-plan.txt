@@ -137,6 +137,6 @@ This will leave the following drivers in place:
 |==========================================================
 
 For details on the technical considerations, see our
-file:drivers.html[NTPD driver retention analysis].
+link:drivers.html[NTPD driver retention analysis].
 
 //end

@@ -5,8 +5,8 @@
 NTP Classic's documentation is an untidy, confusing heap of details
 that is intimidating to novices and confusing even to experts.  We
 know how to do better at both
-http://www.catb.org/gpsd/time-service-intro.html[Introductory] and
-http://www.catb.org/gpsd/gpsd-time-service-howto.html[Intermediate]
+link://www.catb.org/gpsd/time-service-intro.html[Introductory] and
+link://www.catb.org/gpsd/gpsd-time-service-howto.html[Intermediate]
 levels and will apply that knowledge to NTPsec.
 
 == Create a real end-to-end test suite ==
@@ -31,7 +31,7 @@ not when there is nothing more to add, but when there is nothing left
 to take away."  This is our project motto.  The more code we can throw
 away, the fewer potential vulnerabilities and complexity issues we
 will have.  There are many opportunities here; see our
-file:removal-plan.html[removal plans], and holler if we're removing
+link:removal-plan.html[removal plans], and holler if we're removing
 something you need.
 
 == Broaden community participation ==
@@ -49,7 +49,7 @@ Precision clock sources are tricky things, and testing in a simulation
 environment has limits. We aim to build a lab where we can
 remote-control refclocks and a network of ntpd instances for
 live testing.  This will take money: see
-file:getting-involved.html[Getting Involved] for how you can help.
+link:getting-involved.html[Getting Involved] for how you can help.
 
 == Deep refactoring ==
 
@@ -73,7 +73,7 @@ sustainability, that knowledge needs to become more widely spread.
 image::clocktower64.png[align="center"]
 
 The software tasks on this list will be done on the 2.x branch.
-You should probably read file:lines-of-development.html[Lines of
+You should probably read link:lines-of-development.html[Lines of
 development] next.
 
 //end

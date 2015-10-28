@@ -47,7 +47,7 @@ Down the road we plan deeper refactoring for security and simplicity,
 and to fully adapt the network time protocol to IPV6.
 
 NTPsec begins with a core team of experienced and expert developers.
-You can read more about them on the file:core-team.html[Core
+You can read more about them on the link:core-team.html[Core
 Team] page.
 
 image::clocktower64.png[align="center"]

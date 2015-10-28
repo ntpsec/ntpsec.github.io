@@ -82,7 +82,7 @@ other technical areas. His tools jailbroke the NTP Classic repository
 out of BitKeeper, and he composed a lot of the website you're viewing.
 
 In his spare time, Eric trains in kung fu and Western sword, shoots
-pistols, http://esr.ibiblio.org/[writes a blog], and reads science
+pistols, link://esr.ibiblio.org/[writes a blog], and reads science
 fiction.
 
 == Joel Sherrill ==

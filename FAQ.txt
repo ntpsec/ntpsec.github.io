@@ -12,12 +12,12 @@ This failure didn't happen at random. NTP Classic has long neglected
 open-source best practices, and stagnated as a result. The code needed
 to be fixed, and the development practice around it reformed.
 
-You can read more about file:history.html[How NTPsec came to be].
+You can read more about link:history.html[How NTPsec came to be].
 
 == Why should we believe your security/reliability claims? ==
 
 The NTPsec team combines the expertise of senior developers from
-NTP Classic, the http://www.catb.org/~esr/GPSD[GPSD project], and the
+NTP Classic, the link://www.catb.org/~esr/GPSD[GPSD project], and the
 https://www.rtems.org/[RTEMS Project].
 
 GPSD has an exceptional record of reliability and security over a

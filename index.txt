@@ -23,24 +23,24 @@ the proprietary BitKeeper version-control system allowed.
 
 Learn more:
 
-file:announcement.html[Project announcement]
+link:announcement.html[Project announcement]
 
-file:accomplishments.html[What we've achieved]
+link:accomplishments.html[What we've achieved]
 
-file:plans.html[What we plan to do]
+link:plans.html[What we plan to do]
 
-file:lines-of-development.html[Lines of development]
+link:lines-of-development.html[Lines of development]
 
-file:supported-platforms.html[Supported platforms]
+link:supported-platforms.html[Supported platforms]
 
-file:core-team.html[The core team]
+link:core-team.html[The core team]
 
-file:getting-involved.html[How you can help]
+link:getting-involved.html[How you can help]
 
-file:channels.html[Communications channels]
+link:channels.html[Communications channels]
 
-file:FAQ.html[The inevitable FAQ]
+link:FAQ.html[The inevitable FAQ]
 
-file:history.html[How NTPsec came to be]
+link:history.html[How NTPsec came to be]
 
 //end

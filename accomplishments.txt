@@ -7,7 +7,7 @@ more experience doing messy repository conversions than anyone else
 alive, including gnarly and venerable projects like groff and Emacs.
 Producing a really high-quality conversion took him *ten weeks* of
 concentrated effort.  You can read more about
-http://esr.ibiblio.org/?p=6792[how to spot a high-quality repository
+link://esr.ibiblio.org/?p=6792[how to spot a high-quality repository
 conversion]; our NTP history has all the traits of good ones.
 
 We have significantly hardened the code against buffer overruns::
@@ -97,6 +97,6 @@ problems.
 
 image::clocktower64.png[align="center"]
 
-You should probably read file:plans.html[What we plan to do] next.
+You should probably read link:plans.html[What we plan to do] next.
 
 //end

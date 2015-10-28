@@ -137,7 +137,7 @@ methods for peer time-source programs in ntpd itself.</p></div>
 <div class="sectionbody">
 <div class="paragraph"><p>The following lists the drivers in ntpd4, categorizes them, and
 recommends a disposition for each. It&#8217;s based on this list:</p></div>
-<div class="paragraph"><p><a href="http://www.eecis.udel.edu/~mills/ntp/html/refclock.html">http://www.eecis.udel.edu/~mills/ntp/html/refclock.html</a></p></div>
+<div class="paragraph"><p>link://www.eecis.udel.edu/~mills/ntp/html/refclock.html</p></div>
 <div class="paragraph"><p>Types 15, 23, 24, and 25 are not listed because they are reserved and
 not in use.</p></div>
 <div class="sect2">
@@ -152,7 +152,7 @@ obsolete anywhere with a sky view, where a GPS will do a better job.</p></div>
 documentation.  There is no refclock implementation for it.</p></div>
 <div class="paragraph"><p>Web searches reach one copy of the technical manual dating from 1994
 and preserved here:</p></div>
-<div class="paragraph"><p><a href="http://www.to-way.com/tf/trak8820a.pdf">http://www.to-way.com/tf/trak8820a.pdf</a></p></div>
+<div class="paragraph"><p>link://www.to-way.com/tf/trak8820a.pdf</p></div>
 <div class="paragraph"><p>All other references are to copies of old ntpd documentation. I
 conclude that this hardware is extremely obsolete and
 discontinued before well before 2000.</p></div>
@@ -160,7 +160,7 @@ discontinued before well before 2000.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_type_3_psti_traconex_1020_wwv_wwvh_receiver_wwv_pst">Type 3: PSTI/Traconex 1020 WWV/WWVH Receiver (WWV_PST)</h3>
-<div class="paragraph"><p>This device is described here: <a href="http://prc68.com/I/PST1020.shtml">http://prc68.com/I/PST1020.shtml</a> with a
+<div class="paragraph"><p>This device is described here: link://prc68.com/I/PST1020.shtml with a
 2005 note that it is "not very reliable" having drifted by a full minute.</p></div>
 <div class="paragraph"><p>Investigating the vendor site at U.S. Traffic Corp (now Peek Traffic)
 reveals that this device was discontinued, probably before 2000.</p></div>
@@ -237,7 +237,7 @@ I could find none available for sale.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_type_11_arbiter_1088a_b_gps_receiver_gps_arbiter">Type 11: Arbiter 1088A/B GPS Receiver (GPS_ARBITER)</h3>
-<div class="paragraph"><p>Arbiter systems is still alive at <a href="http://www.arbiter.com/">http://www.arbiter.com/</a></p></div>
+<div class="paragraph"><p>Arbiter systems is still alive at link://www.arbiter.com/</p></div>
 <div class="paragraph"><p>With 100ns worst-case accuracy relative to 1PPS this is still a viable
 time source.</p></div>
 <div class="paragraph"><p>Disposition: Move to refclockd.</p></div>
@@ -286,7 +286,7 @@ traces on the Web and I can find no evidence of surviving hardware.</p></div>
 <h3 id="_type_18_nist_usno_ptb_modem_time_services_acts_modem">Type 18: NIST/USNO/PTB Modem Time Services (ACTS_MODEM)</h3>
 <div class="paragraph"><p>The USNO timer service still nominally exists, but requires a
 Hayes-compatible 1200bps modem, hardware now 20 years obsolete:</p></div>
-<div class="paragraph"><p><a href="http://tycho.usno.navy.mil/modem_time.html">http://tycho.usno.navy.mil/modem_time.html</a></p></div>
+<div class="paragraph"><p>link://tycho.usno.navy.mil/modem_time.html</p></div>
 <div class="paragraph"><p>It claims 4ms jitter (before propagation delays in the POTS network).
 Retain because it might be useful in holdover mode.</p></div>
 <div class="paragraph"><p>Disposition: Move to refclockd.</p></div>
@@ -334,7 +334,7 @@ widely used in the time-hacker community.</p></div>
 <div class="sect2">
 <h3 id="_type_27_arcron_msf_receiver_msf_arcron">Type 27: Arcron MSF Receiver (MSF_ARCRON)</h3>
 <div class="paragraph"><p>Obsolete time source, noted in 2003 posting</p></div>
-<div class="paragraph"><p><a href="http://comp.protocols.time.ntp.narkive.com/0sT20Wjc/trimble-s-acutime-2000-compared-to-arcron-msf">http://comp.protocols.time.ntp.narkive.com/0sT20Wjc/trimble-s-acutime-2000-compared-to-arcron-msf</a></p></div>
+<div class="paragraph"><p>link://comp.protocols.time.ntp.narkive.com/0sT20Wjc/trimble-s-acutime-2000-compared-to-arcron-msf</p></div>
 <div class="paragraph"><p>to be "not very good" and inferior to a common Trimble GPS.  The
 vendor is gone.  Web searches do not find units for sale.</p></div>
 <div class="paragraph"><p>Disposition: DISCONTINUED, UNAVAILABLE, INACCURATE; Remove.</p></div>
@@ -377,7 +377,7 @@ hobbyist rigs!  Precision 2000 times worse than a cheap serial GPS.</p></div>
 <h3 id="_type_34_ultralink_wwvb_receivers_ulink">Type 34: Ultralink WWVB Receivers (ULINK)</h3>
 <div class="paragraph"><p>A discontinued time radio.  Most recent references on the
 Web are from 2008; still on sale in 2004.  This posting</p></div>
-<div class="paragraph"><p><a href="http://fixunix.com/ntp/337036-ultralink-325-wwvb-receiver.html">http://fixunix.com/ntp/337036-ultralink-325-wwvb-receiver.html</a></p></div>
+<div class="paragraph"><p>link://fixunix.com/ntp/337036-ultralink-325-wwvb-receiver.html</p></div>
 <div class="paragraph"><p>notes that accuracy is bad compared to a GPS.  Would no
 longer work due to the WWVB modulation change.</p></div>
 <div class="paragraph"><p>Disposition: INTRINSIC, DISCONTINUED and INACCURATE; Remove.</p></div>
@@ -404,7 +404,7 @@ had a Y2K issue then.</p></div>
 <div class="sect2">
 <h3 id="_type_38_hopf_gps_dcf77_6021_komp_for_serial_line_hopf_s">Type 38: hopf GPS/DCF77 6021/komp for Serial Line (HOPF_S)</h3>
 <div class="paragraph"><p>The list of all Hopf products at</p></div>
-<div class="paragraph"><p><a href="http://www.hopf.com/en/index_article_en.html">http://www.hopf.com/en/index_article_en.html</a></p></div>
+<div class="paragraph"><p>link://www.hopf.com/en/index_article_en.html</p></div>
 <div class="paragraph"><p>does not list the Hopf 6021. Because the 6039 still shipping issued
 in 2001 or earlier it is almost certain that the 6021 was discontinued
 sooner yet.</p></div>
@@ -447,7 +447,7 @@ audio-decoder class from a dead vendor.</p></div>
 <div class="sect2">
 <h3 id="_type_44_neoclock4x_dcf77_tdf_serial_line">Type 44: NeoClock4X - DCF77 / TDF serial line</h3>
 <div class="paragraph"><p>This is a radio clock synchronized to DCF77 and thus has 2ms jitter.
-I found a source page at <a href="http://www.linux-funkuhr.de/">http://www.linux-funkuhr.de/</a> that suggests
+I found a source page at link://www.linux-funkuhr.de/ that suggests
 by a small software company "Linum Software GmbH" for Linux hosts.
 It may still be available.</p></div>
 <div class="paragraph"><p>Disposition: Move to refclockd.</p></div>
@@ -816,7 +816,7 @@ Version 1.4, 2015-06-30
 <div id="footer-text">
 Version 1.4<br>
 Last updated
- 2015-10-28 02:59:40 EDT
+ 2015-10-28 03:37:06 EDT
 </div>
 </div>
 </body>

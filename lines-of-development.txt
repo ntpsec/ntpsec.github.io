@@ -24,7 +24,7 @@ level of seriously hardened code.
 
 The 2.x line will press forward on code hardening, functional
 improvements, and new features. Some 1.x features will be
-file:removal-plan.html[removed] from 2.x - this is a deliberate
+link:removal-plan.html[removed] from 2.x - this is a deliberate
 choice to reduce complexity and attack surface (remember, "Perfection
 is achieved ... when there is nothing left to take away").
 
