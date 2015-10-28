@@ -1,0 +1,40 @@
+= How you can help =
+:toc!:
+:numbered!:
+
+We encourage community involvement.  Here are some of the ways you can
+contribute:
+
+== Report bugs and send patches ==
+
+Open-source code review is the heart of our process. We welcome bug
+reports and fix patches. We'll be happy to work with casual contributors,
+casual contributors who want to become regulars, and regulars who aspire
+to join the core team.
+
+== Sign up as a platform maintainer ==
+
+The core team can't be everywhere, nor can we cover every operating
+system and hardware platform collaboration.  If the POSIX/C99 build
+breaks in your special environment, consider working with us as
+a platform maintainer.
+
+== Donate to support the project ==
+
+NTP is critical infrastructure that has fallen into disrepair.
+There's a lot of work that needs to be done on it.  The core
+team has the skills and experience to get the job done, but
+it's going to take many person-years of concentrated attention
+to get it done - beyond the limit of what unpaid voluntarism
+can sustain.  Also, some of the test hardware we need is
+specialized and expensive.
+
+Accurate time is the beating pulse of the Internetted world economy.
+If you are a business or government agency or wealthy individual that
+relies on the Internet, you rely on NTP.  We accept tax-deductible
+donations through the http://icei.org[Internet Civil Engineering
+Institute].  Please give generously - the civilization you
+save may be your own.
+
+// end
+

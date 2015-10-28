@@ -1,0 +1,136 @@
+= The NTPsec core team =
+:toc!:
+:numbered!:
+
+In aphabetical order:
+
+== Mark Atwood ==
+
+Mark Atwood is our Project Manager pro-tem.
+
+Mark is the Director of Open Source Engagement at Hewlett Packard
+Enterprise. His experience includes working with and creating
+technology industry foundations, standards bodies, and conference
+organizing committees, usually because "it needs doing". He prefers to
+work behind the scenes. He describes his job as "learning amazing
+stuff and meeting amazing people, and then introducing them all to
+each other". His previous employment include being the Open Source
+Advocate for Red Hat OpenShift, the Community Manager for Eucalyptus
+Systems, the Director of Community Development for Gear6 Memcached,
+and a Senior Technology Advisor for Network.com at Sun
+Microsystems. He is a coauthor of the OAuth Core specification, and is
+the co-owner of an industrial-art makerspace.
+
+When he is not traveling, he makes his home in Seattle.
+
+== Daniel Fox Franke ==
+
+Daniel is our cryptographic specialist and code reviewer.
+
+Daniel is a Principal Security Researcher at Akamai Technologies. His
+job is to help engineers write safer code, particularly when it
+involves cryptography, and with the assistance of formal methods when
+appropriate.
+
+Daniel's hobbies include running, mountaineering, and dog sledding. He
+has swum to shore from Alcatraz Island and solo summited Mt.
+Washington in February in 65mph winds. He tweets as
+https://twitter.com/dfranke[@dfranke] and blogs irregularly at
+https://www.dfranke.us[Indistinguishable from Random].
+
+== Chris Johns ==
+
+Chris is our expert on high-precision programming, threads, and SMP.
+
+Chris Johns is an embedded real-time software engineer working close
+to the hardware interfacing it to real-time software. Chris has been a
+constant contributor to the RTEMS project since it was opened in the
+early 1990's and is now a core developer of that project. Chris's work
+ranges from operating system support for aerospace flight software for
+satellites (including the Magnetospheric Multiscale Mission) and X-ray
+detectors for various beam lines, to various types of networking
+including voice switching on the NATO AWACS.
+
+Chris lives with his wife and children, pretends to play tennis, and
+walks his dogs (which usually means a stroll to a cafe for breakfast).
+
+== Hal Murray ==
+
+Hal is our voice of wisdom.
+
+Hal is a retired engineer who worked at the hardware/software
+boundary.  He won't be insulted if you call him a geek, nerd, or
+hacker.  He likes chasing glitches, quirks, and bugs.  Hal caught the
+time bug a long time ago; in the early 80s, the time servers at Xerox
+PARC were set from his watch.
+
+== Eric S. Raymond ==
+
+Eric is our architecture and protocols guru.
+
+Eric S. Raymond has been the technical lead of GPSD, a close peer
+project of NTP and one of its principal time sources, since 2004. GPSD
+has billions of deployments in Android smartphones world wide and is a
+mission-critical component in most of the world's drones and
+driverless cars and robot submarines. He is also well-known as the author
+of _The Cathedral and the Bazaar_ and one of the founders of the
+modern open-source movement.
+
+ESR brings the NTPsec project deep expertise in software architecture,
+DSLs, application-protocol design, end-to-end testing, and several
+other technical areas. His tools jailbroke the NTP Classic repository
+out of BitKeeper, and he composed a lot of the website you're viewing.
+
+In his spare time, Eric trains in kung fu and Western sword, shoots
+pistols, http://esr.ibiblio.org/[writes a blog], and reads science
+fiction.
+
+== Joel Sherrill ==
+
+Joel specializes in safety-critical, high integrity systems.
+
+Dr. Joel Sherrill has worked on a variety of safety-critical real-time
+embedded systems for almost thirty years and an active participant in
+the free software community for most of that. Joel is one of the original
+authors and project lead for RTEMS.org, a free real-time operating system.
+In addition to being a contributor to multiple free software projects,
+Joel is a founding member of the Steering Committee for the Free
+Software Foundation's GNU Compiler Collection (GCC) and has served on
+the Network Time Foundation Board.
+
+In his copious free time Joel travels, hosts parties, and helps
+maintain the unofficial Elvis Costello fan site.
+
+== Susan Sons ==
+
+Susan is the team's InfoSec specialist and first responder for
+security issues.
+
+Susan is a Senior Systems Analyst at Indiana University's Center for
+Applied Cybersecurity Research, and as director of the Internet Civil
+Engineering Institute, a nonprofit dedicated to supporting and
+securing the common software infrastructure we all depend on. Susan
+comes from a background in abuse management, web development, and web
+application pentesting.
+
+In her free time, Susan writes, practices and teaches martial arts,
+contributes to open source software, and volunteers as a
+search-and-rescue and disaster relief worker. Susan lives and raises
+her mini-hacker in Bloomington, IN.
+
+Known vulnerabilities: can be bribed with dark chocolate, occasionally
+disappears into forests for extended periods.
+
+== Amar Takhar ==
+
+Amar is our testing and infrastructure specialist.
+
+Amar has worked on both software and hardware testing for 18 years.  He has
+designed several complete testing systems for Continuous Integration,
+operational and structured testing.  Amar has a strong passion for design
+conformance, quality assurance, big data and cross platform compatibility.  With
+over 20 years in the open source community and longterm commitment to several
+projects he also enjoys spending his spare time in the garden, running,
+reading and cooking.
+
+//end

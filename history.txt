@@ -1,0 +1,83 @@
+= How NTPsec came to be =
+
+The prehistory of the NTPsec project goes back to 2013, when one of
+the team members offered to help migrate the NTP Classic history out
+of BitKeeper to git or hg - anything that might increase community
+access and participation.  Said member (ESR) was then, and still is,
+the open-source community's go-to guy for large, messy repository
+conversions.  Harlan Stenn, the lead of NTP Classic, was determined to
+hold on to BitKeeper and refused the offer.
+
+In late 2014 another founding member - Susan Sons - became aware
+that NTP Classic instances were routinely being used as amplifiers
+for DDoS attacks.  Investigating, she became concerned with what
+she learned about the state of NTP Classic.  When she communicated
+the results of her research to her superiors at the Center for Applied
+Cybersecurity Research, they contacted the National Science Foundation
+- which became so alarmed that it approved funding for a rescue
+intervention (something it had never done before) in _two days_.
+
+Grant approval in hand, Susan needed a technical team.  She recruited
+ESR, who recruited Gary Miller and Hal Murray.  Some technical plans
+and the broad direction of the project began to take shape.  Amar
+Takhar, who had been a system administrator for the NTP Classic
+project, joined the conversation in mid-February.
+
+In Hal and Amar, Susan's team included two prominent members of NTP
+Classic's user and developer community.  Gary and ESR, though not
+directly members themselves, had ties to that community through their
+time-service work on the GPSD project.  The ideal outcome for all of
+us and the NSF would have been to re-invigorate the NTP Classic
+codebase within the organizational framework of Harlan Stenn's Network
+Time Foundation.  We negotiated with Harlan Stenn towards this end.
+
+A meeting of minds should have been possible.  Stenn had been
+complaining for years that NTP development was held up by
+lack of skilled developer time and a support budget. The NSF's
+rescue intervention offered both.
+
+It was not to be.  Stenn insisted that development must remain on
+BitKeeper, a choice which the rescue team felt would continue to wall
+off the NTP Classic codebase from the wider open-source community and
+thus perpetuate its dangerously stagnant state.
+
+Following the collapse of negotiations, Amar Takhar made the decision
+to initiate a project fork, and invited the rescue team members to
+help it happen.  ESR and Gary signed on immediately, Hal a few weeks
+later.  After considering other candidates to be the new project's
+security officer, Amar asked Susan to join up in that role and she
+accepted.  Subsequently Amar recruited Chris Johns from the RTEMS
+project. Gary Miller assisted with the repository migration and
+some early cleanup work, but resigned from the team before launch.
+
+Forking a project, especially a mature and well-established project
+like NTP, is never a decision to be made lightly.  The team regrets the
+necessity, but we felt that NTP is far too important a part of the
+Internet infrastructure to be allowed to fall further into decay.
+
+The team began work to fulfill the NSF's grant terms, migrating the
+history to git and showing measurable progress towards
+security-hardening the code. We also began to quietly prepare for a
+public project launch.  In June 2015 we gained funding from the Core
+Infrastructure Initiative.  Around the same time Dr. Joel Sherrill,
+learning of our effort and its goals, resigned from the Network
+Time Foundation board and joined our team.
+
+Through the late summer and fall of 2015 the team worked on the
+massive cleanup required to remove obsolete code, fix documentation,
+and live-rest the results.  We removed over half the bulk of the
+NTP Classic codebase and significantly security-hardened what was
+left.  We changed build systems from autoconf to waf for a dramatic
+improvement in build times and repeatability.
+
+In late September Mark Atwood of CII stepped up to manage the project,
+freeing Amar to concentrate on his technical work.  Shortly after that
+we began active cooperation with three different security-research
+groups to find and fix NTP vulnerabilities, and Daniel Franke joined
+the team as our crypto expert.
+
+In early October we began planning for an 0.9 beta release.
+
+The rest of the story has yet to be written.
+
+//end

@@ -1,0 +1,142 @@
+= Feature removals =
+
+The aim of the NTPsec project is high security, availability, and assurance.
+The more code we can throw away, the fewer potential vulnerabilities
+and complexity issues we will have.
+
+Accordingly, we have already removed many obsolete features, and have
+a schedule of more feature removals planned.  If something on this
+list is important to you, tell us.  If the complexity cost of keeping
+it is low, you win.  If the complexity cost is high, then we will need
+a donation of engineering time or money to support keeping it in the
+codebase.
+
+== Removals already complete ==
+
+The ntpdc utility has been entirely removed.  (All its capabilities are
+available through ntpq with a similar user unterface.)  Support for
+Mode 7 packets in ntpd has been removed along with it, significantly
+reducing total attack surface and code complexity.
+
+The ntpsnmpd daemon, being half-complete and not fully conformant with
+RFC 5907, has been removed.  In a future release we would be open to
+replacing it with a conformant implementation.
+
+The long-deprecated ntpdate program has been replaced with a shell
+wrapper around sntp.
+
+We have removed the following refclock drivers, which were either
+broken and won't compile on modern systems (12, 21), or irretrievably
+obsolete due to the WWVB modulation change in 2013 (3, 19, 32, 34,
+36), or had unfixable Y2K issues (37), or unfixable security issues
+(16, 43), or were deprecated in NTP Classic and had their
+documentation removed (13, 14, 17).
+
+|==============================================================
+|Type 3: PSTI/Traconex 1020 WWV/WWVH Receiver (WWV_PST)
+|Type 12: KSI/Odetics TPRO/S IRIG Interface
+|Type 13: Leitch CSD 5300 Master Clock Controller (ATOM_LEITCH)
+|Type 14: EES M201 MSF Receiver (REFCLOCK_MSF_EES)
+|Type 16: Bancomm GPS/IRIG Receiver (GPS_BANCOMM)
+|Type 17: Datum Precision Time System (GPS_DATUM)
+|Type 19: Heath WWV/WWVH Receiver (WWV_HEATH)
+|Type 21: TrueTime GPS-VME Interface (GPS_VME)
+|Type 32: Chrono-log K-series WWVB receiver (CHRONOLOG)
+|Type 34: Ultralink WWVB Receivers (ULINK)
+|Type 36: Radio WWV/H Audio Demodulator/Decoder (WWV)
+|Type 37: Forum Graphic GPS Dating station (FG)
+|Type 43: RIPE NCC interface for Trimble Palisade
+|==============================================================
+
+In addition, support for WWVB and OMEGA has been removed from
+Type 5 (TrueTime) driver. Support for GPS and GOES has been retained.
+
+You may be unable to build NTPsec on a sufficiently archaic big-iron
+Unix platform.  Support for the native APIs of any version that last
+shipped in the last century has been removed. The codebase assumes
+full POSIX.1-2001 and C99 conformance including ANSI pthreads; in some
+cases you may be able to meet this requirement by upgrading to a
+modern GCC- or clang-based toolchain
+
+Platform-dependent kernel-space code that raised potential security
+issues has been removed.  No programs access /dev/kmem directly any
+longer, and STREAMS support for the parse driver has been deleted.
+
+Support for VMS has been removed, and is unlikely to be restored
+unless that platform has achieved effectively full standards
+conformance and someone interested throws engineering time and money
+at us.  Likewise for VxWorks.
+
+== Suppressed code ==
+
+While we are not removed the Windows code, we will not ship with
+Windows supported until that platform has an active port maintainer.
+
+An implementation of the Autokey public-key-based authentication
+system is still present in the codebasee, but we don't support
+building with it. This feature is broken and has serious security
+vulnerabilities.  One of our longer-term projects is to re-engineer
+it.
+
+== Obsolete refclocks ==
+
+We consider a refclock driver obsolete if it fails any of the
+following tests:
+
+1. It has been discontinued for seven or more years and cannot be
+   found for sale on the Web. Types 5, 9, 10, 26, 27, 35, 37, 38, 41.
+
+2. Duplicates capabilities of GPSD, which specializes in GPSes.
+   Types 20, 29, 30, 31.
+
+3. Deprecated by the NTP Classic documentation in favor of orphan mode
+   (type 1).
+
+4. Accuracy an order of magnitude worse than a cheap 1PPS GPS. Types
+   6, 7, 33.
+
+Thus, we plan to remove the following refclock drivers:
+
+|==========================================================
+|Type 1: Undisciplined Local Clock
+|Type 5: TrueTime GPS/GOES Receivers (TRUETIME)
+|Type 6: IRIG Audio Decoder (IRIG_AUDIO)
+|Type 7: Radio CHU Audio Demodulator/Decoder (CHU)
+|Type 9: Magnavox MX4200 GPS Receiver (GPS_MX4200)
+|Type 10: Austron 2200A/2201A GPS Receivers (GPS_AS2201)
+|Type 20: Generic NMEA GPS Receiver (NMEA)
+|Type 27: Arcron MSF Receiver (MSF_ARCRON)
+|Type 29: Trimble Navigation Palisade GPS (GPS_PALISADE)
+|Type 30: Motorola UT Oncore GPS GPS_ONCORE)
+|Type 31: Rockwell Jupiter GPS (GPS_JUPITER)
+|Type 33: Dumb Clock (DUMBCLOCK)
+|Type 35: Conrad Parallel Port Radio Clock (PCF)
+|Type 38: hopf GPS/DCF77 6021/komp for Serial Line (HOPF_S)
+|Type 41: TrueTime 560 IRIG-B Decoder (REFCLK_TT560)
+|==========================================================
+
+Removing 6 and 7 means we will be able to remove all the
+hair for audio card support.
+
+This will leave the following drivers in place:
+
+|==========================================================
+|Type 4: Spectracom GPS Receivers (SPECTRACOM)
+|Type 8: Generic Reference Driver (PARSE)
+|Type 11: Arbiter 1088A/B GPS Receiver (GPS_ARBITER)
+|Type 18: NIST/USNO/PTB Modem Time Services (ACTS_MODEM)
+|Type 22: PPS Clock Discipline (PPS)
+|Type 26: Hewlett Packard 58503A GPS Receiver (GPS_HP)
+|Type 28: Shared Memory Driver (SHM)
+|Type 39: hopf GPS/DCF77 6039 for PCI-Bus (HOPF_P)
+|Type 40: JJY Receivers (JJY)
+|Type 42: Zyfer GPStarplus Receiver
+|Type 44: NeoClock4X - DCF77 / TDF serial line
+|Type 45: Spectracom TSync PCI
+|Type 46: GPSD NG client protocol
+|==========================================================
+
+For details on the technical considerations, see our
+file:drivers.html[NTPD driver retention analysis].
+
+//end

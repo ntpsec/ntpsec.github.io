@@ -1,0 +1,46 @@
+= Welcome to NTPsec =
+
+[quote, Antoine de Saint-Exup&eacute;ry]
+"Perfection is achieved, not when there is nothing more to add, but
+when there is nothing left to take away."
+
+image::clocktower128.png[align="center"]
+
+Welcome to the NTPsec project - a secure, hardened, and improved
+implementation of Network Time Protocol derived from NTP Classic, Dave
+Mills's original.
+
+NTPsec, as its same implies, is a more secure NTP.  We employ best
+practices and state-of-the art technology in code auditing,
+verification, and testing to deliver code that can be used with
+confidence in deployments with the most stringent security,
+availability, and assurance requirements.
+
+Our first best practice is true open-source code review.  The NTPsec
+code is available in a public git repository. One of our goals is to
+support broader community participation than NTP Classic's use of
+the proprietary BitKeeper version-control system allowed.
+
+Learn more:
+
+file:announcement.html[Project announcement]
+
+file:accomplishments.html[What we've achieved]
+
+file:plans.html[What we plan to do]
+
+file:lines-of-development.html[Lines of development]
+
+file:supported-platforms.html[Supported platforms]
+
+file:core-team.html[The core team]
+
+file:getting-involved.html[How you can help]
+
+file:channels.html[Communications channels]
+
+file:FAQ.html[The inevitable FAQ]
+
+file:history.html[How NTPsec came to be]
+
+//end

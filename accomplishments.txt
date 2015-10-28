@@ -1,0 +1,102 @@
+= What we've accomplished =
+
+We have extracted the NTP codebase from BitKeeper::
+
+This was not a trivial achievement.  One of our team members has
+more experience doing messy repository conversions than anyone else
+alive, including gnarly and venerable projects like groff and Emacs.
+Producing a really high-quality conversion took him *ten weeks* of
+concentrated effort.  You can read more about
+http://esr.ibiblio.org/?p=6792[how to spot a high-quality repository
+conversion]; our NTP history has all the traits of good ones.
+
+We have significantly hardened the code against buffer overruns::
+
+To prevent buffer overruns, we have replaced all unsafe string
+functions (strcpy/strcat/strtok/sprintf/vsprintf/gets) with safe
+versions that take a buffer bound.
+
+We have removed over a hundred thousand lines of obsolete code::
+
+Less code means less attack surface.  Here are some things we've found
+to remove:
++
+|==============================================================================
+|  45.0 KLOC (20%)   | In-tree copy of libevent2
+|  23.0 KLOC (10%)   | Undocumented, deprecated, or broken refclock code
+|                      (Types 3, 12, 13, 14, 17, 19, 32, 34, 36, 37, 43)
+|  24.0 KLOC (11%)   | Unused ISC library code
+|  12.5 KLOC (5%)    | libopts/autogen removal
+|   9.0 KLOC (4%)    | Code obsolete because we assume a POSIX.1-2001/C99 base
+|   9.0 KLOC (4%)    | Removal of ntpdc
+|   2.0 KLOC (1%)    | Replacement of ntpdate by a shell wrapper around ntpdig
+|   3.5 KLOC (2%)    | Miscellaneous cruft
+| 130.0 KLOC (57%)   | _Total removed_
+|  97.0 KLOC (43%)   | _Total remaining_
+| 227.0 KLOC (100%)  | _Total at conversion time_
+|==============================================================================
++
+(Totals may not sum exactly due to rounding errors.  Numbers generated
+using David A. Wheeler's 'SLOCCount'.)
++
+These removals include nearly half of the bulk of ntpd, the most
+security-critical code.  And the numbers understate the size of the
+removals slightly because the way we counted "remaining" code includes
+some test code added since the repository conversion.
+
+We have improved the accuracy of time stepping with real hardware by x10::
+
+When NTP was originally written, computer clocks only delivered
+microsecond precision.  Now they deliver nanosecond precision (though
+not all of that precision is accurate).  By changing some internal
+representations we have made NTPsec able to use the full precision of
+modern clocks, which results in a factor 10 or more of accuracy
+improvement with real hardware such as GPSDOs and dedicated time
+radios.
+
+We have applied Coverity scanning and fixed bugs where they were revealed::
+
+NTP Classic had occasionally been Coverity-checked in the past, but
+those warnings were not systematically fixed.  We found 40 unresolved
+defect reports and dealt with them appropriately.
+
+We have fixed all compiler warnings::
+
+All compiler warnings have been either fixed or suppressed for
+principled reasons (like "that one is caused by a known GCC optimizer
+bug"). This may seem like a small thing, but it can have a significant
+effect on maintainability and downstream defect rates.  Noise warnings
+are a kind of undergrowth in which real warnings and the bugs that
+trigger them can lurk undetected.
+
+We have increased the visibility of potential defects to static analyzers::
+
+By well-defined transformations of the code, including improving its
+type discipline, we can give static analyzers and verification tools
+better traction to find defects and potential vulnerabilities.  We've
+got a good running start on this already, changing the code to use C99
+bools wherever possible and safe.
+
+We have moved the build to waf::
+
+The NTP Classic build system was 31,000 lines of impacted autotools
+cruft, a Lovecraftian nightmare of complexity that reached out from
+sunken R'lyeh to trouble the dreams of the living.  We switched to
+https://waf.io/[waf], an alternative single-phase build system also
+used (among other places) by the Samba project.  Our builds got
+an order of magnitude faster, and the new build recipe is about
+1 KLOC!
+
+We have updated and reorganized the documentation::
+
+The NTP in-tree documentation was in terrible shape - incomplete where
+it was not actively misleading, with some parts of it that needed
+updating (such as the WHERE-TO-START file) actually unmodified since
+1998.  Though there is more to be done, we've already fixed the worst
+problems.
+
+image::clocktower64.png[align="center"]
+
+You should probably read file:plans.html[What we plan to do] next.
+
+//end

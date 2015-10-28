@@ -1,0 +1,15 @@
+= Communications channels =
+
+//FIXME: All these channels need to be filled in/
+
+The project repository is here:
+
+Mailing lists:
+
+IRC channel:
+
+Wiki:
+
+// end
+
+

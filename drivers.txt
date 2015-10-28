@@ -1,0 +1,647 @@
+= NTPD driver retention analysis =
+Eric S. Raymond <esr@thyrsus.com>
+Version 1.4, 2015-06-30
+
+== Summary ==
+
+ntpd contains support for 42 driver types.  Of these: 2 are IPC drivers
+which must be retained; 10 are for hardware that might, under very
+generous assumptions, still be of use; and 30 can be discarded.
+
+Out of that 10, the actual utility of some remains dubious, but the
+cultural/political context of the project probably requires that we
+retain them.  I discuss related issues in a concluding section.
+
+== Technological context ==
+
+NTP's driver inventory contains several different classes of precision
+time sources.  The software is now around 40 years old, and some of
+those classes are now obsolescent or semi-obsolescent.
+
+See "Introduction to Time Service" for terminology, device classes,
+and accuracy.  The summary version is that inexpensive 1PPS-capable
+GPS devices have a nearly overwhelming cost-effectivenee advantage
+over older time source types, and the utility of supporting those
+older types is accordingly plummeting.
+
+I think it is actually seriously questionable whether support for
+*any* of these legacy devices is worth maintaining.  No hardware
+drivers have been added since 2006, and possibly none since 2002.
+NIST's modulation change in 2013 laid waste to the U.S. time-radio
+industry. It may actually be the case that *all* the Stratum 1 sites
+running non-custom ntpd instances are using GPSes now.
+
+However, political reality - especially for a federally-funded project
+with customers in a lot of .gov and .mil shops running very old iron -
+does not necessarily allow the best technical move, which would be to
+drop all the drivers, see who screams, and reinstate the fewest we
+can.  I will return to this issue.
+
+== Objectives and criteria ==
+
+Two of our main objectives is the ntpd resue are (1) to eliminate security
+vulnerabilities and (2) move the code to a maintainable state.  An
+effective way of accomplishing both would be to outright remove as
+much code as possible from ntpd.
+
+ntpd includes no fewer than 46 device drivers for local clock sources.
+Some effective means of removing code would be to
+
+INTRINSIC::
+	Remove hardware that can no longer work for intrinsic technical reasons.
+
+DEPRECATED::
+	Remove deprecated drivers - that is, drivers which the ntpd
+	documentation itself declares obsolete or no longer documents.
+
+DISCONTINUED::
+	Remove drivers for products that have been discontinued for
+	more than seven years. (In the first version of this report
+	the proposal was ten years.  Please see the final section
+	on policy and conclusions.)
+
+UNAVAILABLE::
+	Remove drivers for products which cannot be found for sale
+	with a web search. (I have noted when remaindered units are
+	available on e-Bay and second-hand sites.)
+
+REDUNDANT::
+	Remove drivers that duplicate capabilities better provided by
+	GPSD (or, in principle, other sensor managers).
+
+INACCURATE::
+	Remove GPS drivers and time radios for which the hardware offers no
+	better source accuracy than a timing GPS available for less than
+	$75 in 2015; that is, about 5us.  (However, do not necessarily
+	remove poorer-performing GPS-conditioned *clocks*, as they continue
+	to supply time in holdover mode when the GPS cannot get satellite lock.)
+
+We should certainly keep drivers such as SHM and GPSD-NG that are IPC
+methods for peer time-source programs in ntpd itself.
+
+== First-round triage ==
+
+The following lists the drivers in ntpd4, categorizes them, and
+recommends a disposition for each. It's based on this list:
+
+http://www.eecis.udel.edu/~mills/ntp/html/refclock.html
+
+Types 15, 23, 24, and 25 are not listed because they are reserved and
+not in use.
+
+=== Type 1: Undisciplined Local Clock ===
+
+This driver type is described as deprecated.  It is in any case
+obsolete anywhere with a sky view, where a GPS will do a better job.
+
+Disposition: Fails tests DEPRECATED and INACCURATE; Remove.
+
+=== Type 2:   Trak 8820 GPS Receiver
+
+This driver still existed only as one mention in the ntp4
+documentation.  There is no refclock implementation for it.
+
+Web searches reach one copy of the technical manual dating from 1994
+and preserved here:
+
+http://www.to-way.com/tf/trak8820a.pdf
+
+All other references are to copies of old ntpd documentation. I
+conclude that this hardware is extremely obsolete and
+discontinued before well before 2000.
+
+Disposition: Fails tests DEPRECATED, DISCONTINUED, UNAVAILABLE; Remove.
+
+=== Type 3: PSTI/Traconex 1020 WWV/WWVH Receiver (WWV_PST) ===
+
+This device is described here: http://prc68.com/I/PST1020.shtml with a
+2005 note that it is "not very reliable" having drifted by a full minute.
+
+Investigating the vendor site at U.S. Traffic Corp (now Peek Traffic)
+reveals that this device was discontinued, probably before 2000.
+
+According to this August 2001 post
+
+https://groups.google.com/forum/#!topic/comp.protocols.time.ntp/0jOItglBTLE
+
+the device required manual intervention every year and was not
+designed for use after 2001.  Dave Mills replied to that one in a way
+that implies he still has two of these and there is a workaround to
+the problem described, but also says they have a service life of only
+a few years due to a failure-prone component.
+
+I could not find any for sale on the Web.  This hardware
+would no longer work even if a specimen could be found, due to WWVB's
+modulation change as described in the next entry.
+
+Disposition: Fails test INTRINSIC, DISCONTINUED, UNAVAILABLE, and 
+INACCURATE; Remove.
+
+=== Type 4: Spectracom WWVB/GPS Receivers (WWVB_SPEC) ===
+
+Since WWVB changed its modulation scheme in January 2013
+Spectracom WWVB receivers from before that date no longer function.
+The models covered by this driver (Model 8170, Netclock/2 WWVB) are in
+this category.  Spectracomm has not produced any new time-radio gear
+since the modulation change.
+
+However, the Spectracomm 9300 (still in production and support)
+is a GPS clock that can emit the type 0 and 2 formats recognized
+by this driver.
+
+Disposition: Move to refclockd.
+
+=== Type 5: TrueTime GPS/GOES/OMEGA Receivers (TRUETIME) ==
+
+True Time was a product line of timer sources. The most recent manual
+I can find is from 1997:
+
+www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA324042
+
+The devices can be found for sale, but only on e-Bay and electronics
+remainder sites.  The vendor seems to be long gone.
+
+Disposition: DISCONTINUED; Remove.
+
+=== Type 6: IRIG Audio Decoder (IRIG_AUDIO) ===
+
+This driver is a very, very bad idea given flesh. It demodulates an
+*audio signal* emitted by several radio time sources, requiring custom
+wiring to connect to a microphone or line-in port.  All for
+accuracy two orders of magnitude worse (500uSec) than a cheap 1PPS GPS
+and no holdover capability.
+
+Disposition: INACCURATE; Remove.
+
+=== Type 7: Radio CHU Audio Demodulator/Decoder (CHU) ===
+
+A very bad idea similarly wired to Type 6, using a Canadian analog 
+of WWVB.  Cited as 1ms accuracy without GPS calibration.
+
+Disposition: INACCURATE; Remove.
+
+=== Type 8: Generic Reference Driver (PARSE) ===
+
+This is a driver supporting a large variety of time radios, some of
+which (such as the Meinberg line) are still generally available.
+
+Disposition: Move to refclockd.
+
+=== Type 9: Magnavox MX4200 GPS Receiver (GPS_MX4200) ===
+
+A line of GPSes produced by Magnavox, discontinued in 1994, with 
+the surplus stock marketed by Leica Geosystems.  Leica no longer
+sells them.  They shipped 1PPS.  I could find none available for sale.
+
+Disposition: DISCONTINUED, UNAVAILABLE; Remove.
+
+=== Type 10: Austron 2200A/2201A GPS Receivers (GPS_AS2201) ===
+
+An obsolete line of 1PPS GPS receivers.  Austron was acquired some
+time before 1996 and the product line apparently discontinued then.
+A few units were still in hobbyist use in 2006, but there don't
+seem to be more recent references even on the time-nuts list.
+I could find none available for sale.
+
+Disposition: Fails tests DISCONTINUED, UNAVAILABLE; Remove.
+
+=== Type 11: Arbiter 1088A/B GPS Receiver (GPS_ARBITER) ===
+
+Arbiter systems is still alive at http://www.arbiter.com/
+
+With 100ns worst-case accuracy relative to 1PPS this is still a viable
+time source.
+
+Disposition: Move to refclockd.
+
+=== Type 12: KSI/Odetics TPRO/S IRIG Interface (IRIG_TPRO) ===
+
+An obsolete clock source that connected directly to the SBus of a Sun
+workstation. SBus was replaced rapidly by PCI after 1997; no hardware
+based on SBus has been shipped for at least a decade and the last
+of these were probably shipped before the year 2000. I could find
+none of them for sale.
+
+Disposition: DISCONTINUED, UNAVAILABLE; Remove.
+
+=== Type 13: Leitch CSD 5300 Master Clock Controller (ATOM_LEITCH) ===
+
+Documentation has been removed from the ntpd4 webpages.
+
+A clock source that synchronized with the U.S. national time authority
+via modem.  Leitch was acquired by Harris Broadcasting in 2005.
+
+Propagation jitter in the POTS network dooms any chance this could
+even match the performance of a cheap serial GPS. Remnant units are
+available on eBay and electronics remainder sites.
+
+Disposition: DEPRECATED, DISCONTINUED and INACCURATE; already removed.
+
+=== Type 14: EES M201 MSF Receiver (MSF_EES) ===
+
+Documentation for this driver has been removed from the ntpd4 webpages.
+
+All the references to it I can find on the Web point back
+to old NTP documentation. I conclude that it is obsolete.
+
+Disposition: Fails test DEPRECATED and DISCONTINUED; already removed.
+
+=== Type 16: Bancomm GPS/IRIG Receiver (GPS_BANCOMM) ===
+
+A discontinued VME board for Sun 4 systems.  The last VME-based 
+Sun 4 issued in 1989 to be replaced by SBus systems also now
+obsolete.
+
+Disposition: DISCONTINUED; Remove.
+
+=== Type 17: Datum Precision Time System (GPS_DATUM) ===
+
+Documentation has been removed from the ntpd4 webpages.  There used to
+be a company called Datum that sold clock sources, but it has left no
+traces on the Web and I can find no evidence of surviving hardware.
+
+Disposition: DEPRECATED, DISCONTINUED, UNAVAILABLE; already removed.
+
+=== Type 18: NIST/USNO/PTB Modem Time Services (ACTS_MODEM) ===
+
+The USNO timer service still nominally exists, but requires a
+Hayes-compatible 1200bps modem, hardware now 20 years obsolete:
+
+http://tycho.usno.navy.mil/modem_time.html
+
+It claims 4ms jitter (before propagation delays in the POTS network).
+Retain because it might be useful in holdover mode.
+
+Disposition: Move to refclockd.
+
+=== Type 19: Heath WWV/WWVH Receiver (WWV_HEATH) ===
+
+Pre-1992 time-radio receiver, cited as worse than 100ms accuracy.
+Undated web pages suggest that a few may survive in hobbyist use.
+
+Disposition: DISCONTINUED, UNAVAILABLE, INACCURATE; Remove.
+
+=== Type 20: Generic NMEA GPS Receiver (NMEA) ===
+
+GPSD does this better.
+
+Disposition: REDUNDANT; Remove
+
+=== Type 21: TrueTime GPS-VME Interface (GPS_VME) ===
+
+VME-bus time source for Sun workstations, long dead, documentation
+removed.
+
+Disposition: INTRINSIC, DEPRECATED, DISCONTINUED; already removed.
+
+=== Type 22: PPS Clock Discipline (PPS) ===
+
+I had this marked for retention in the 1.0 version of this document;
+it could still have been potentially useful in some very odd
+situations - the documentation mentions "the vicinity of Mars".
+
+However, Hal Murray reports that the PPS support in ntpd is "kludgy"
+and needs to be fixed.  That say to me that this driver is too
+broken to be worth saving.  
+
+Disposition: INTRINSIC; Remove
+
+=== Type 26: Hewlett Packard 58503A GPS Receiver (GPS_HP) ===
+
+Support for two discontinued HP time sources, not updated since 2005.
+Used units can be found on the Web.  Accuracy cited as better than 1us
+when GPS-locked, drift of better than 10ms in holdover mode. Some
+are available on eBay.
+
+I had this marked for removal in the 1.0 version of this document,
+but Hal Murray - who is credible when he says such things - reports
+that (a) these were heavily used in cell towers before being 
+discontinued, so surplus units are easy to find, and (b) they're
+widely used in the time-hacker community.
+
+Disposition: DISCONTINUED; move to refclockd.
+
+=== Type 27: Arcron MSF Receiver (MSF_ARCRON) ===
+
+Obsolete time source, noted in 2003 posting
+
+http://comp.protocols.time.ntp.narkive.com/0sT20Wjc/trimble-s-acutime-2000-compared-to-arcron-msf
+
+to be "not very good" and inferior to a common Trimble GPS.  The
+vendor is gone.  Web searches do not find units for sale.
+
+Disposition: DISCONTINUED, UNAVAILABLE, INACCURATE; Remove.
+
+=== Type 28: Shared Memory Driver (SHM) ===
+
+IPC driver, to be retained.
+
+=== Type 29: Trimble Navigation Palisade GPS (GPS_PALISADE) ===
+
+GPSD does this better.
+
+Disposition: REDUNDANT; Remove.
+
+=== Type 30: Motorola UT Oncore GPS GPS_ONCORE) ===
+
+GPSD does this better.
+
+Disposition: REDUNDANT; Remove.
+
+=== Type 31: Rockwell Jupiter GPS (GPS_JUPITER) ===
+
+GPSD does this better.
+
+Disposition: REDUNDANT; Remove.
+
+=== Type 32: Chrono-log K-series WWVB receiver (CHRONOLOG) ===
+
+Discontinued WWVB receiver described as "very old" in 2010.  Vendor
+still exists but is now making blood-platelet counters rather than
+clocks. Only 1 second accuracy.  Wouldn't work following the WWVB
+modulation change, anyway.
+
+Disposition: INTRINSIC, DISCONTINUED, UNAVAILABLE, INACCURATE; Remove.
+
+=== Type 33: Dumb Clock (DUMBCLOCK) ===
+
+I can find no evidence that non-GPS ASCII clocks of this kind still
+exist. It is not clear to me that they *ever* existed except as custom
+hobbyist rigs!  Precision 2000 times worse than a cheap serial GPS.
+
+Disposition: INACCURATE; Remove.
+
+=== Type 34: Ultralink WWVB Receivers (ULINK) ===
+
+A discontinued time radio.  Most recent references on the
+Web are from 2008; still on sale in 2004.  This posting
+
+http://fixunix.com/ntp/337036-ultralink-325-wwvb-receiver.html
+
+notes that accuracy is bad compared to a GPS.  Would no
+longer work due to the WWVB modulation change.
+
+Disposition: INTRINSIC, DISCONTINUED and INACCURATE; Remove.
+
+=== Type 35: Conrad Parallel Port Radio Clock (PCF) ===
+
+Obsolete port type, obsolete clock.  The vendor is still in business
+but this product has been discontinued.  All web references I found,
+except one 404, are pointers to ntpd documentation from before 2010.
+
+Disposition: DISCONTINUED, UNAVAILABLE; Remove.
+
+=== Type 36: Radio WWV/H Audio Demodulator/Decoder (WWV) ===
+
+Yet another really bad idea based on audio signal demodulation. Only
+accurate to 1ms; a cheap GPS can do 200 times better.
+
+Disposition: INACCURATE; Remove.
+
+=== Type 37: Forum Graphic GPS Dating station (FG) ===
+
+Product discontinued, vendor vanished, more than 15 years old and
+had a Y2K issue then.
+
+Disposition: DISCONTINUED, INACCURATE; Remove.
+
+=== Type 38: hopf GPS/DCF77 6021/komp for Serial Line (HOPF_S) ===
+
+The list of all Hopf products at 
+
+http://www.hopf.com/en/index_article_en.html
+
+does not list the Hopf 6021. Because the 6039 still shipping issued
+in 2001 or earlier it is almost certain that the 6021 was discontinued
+sooner yet.
+
+The manual for the 6039 mentions a 2ms accuracy limit for time radios
+synchronized to DCF77, so the DCF77 variant is also INACCURATE.
+
+Disposition: DISCONTINUED; Remove
+
+=== Type 39: hopf GPS/DCF77 6039 for PCI-Bus (HOPF_P) ===
+
+Still a live product - an industrial-grade timing receiver, or what
+passed for one in 2001 (date of manual). At a claimed jitter of 2ms it
+is 400 times less accurate than any common 1PPS device today and half
+the accuracy of a $30 USB timing GPS. However, as a clock rather than
+plain GPS the DCF77 variant evades the INACCURATE tag (just barely).
+
+Disposition: Move to refclockd.
+
+=== Type 40:  JJY Receivers (JJY) ===
+
+The TriState and C-Dex devices this supports may still be live
+products, though little information seems to be available in English.
+
+Disposition: Move to refclockd.
+
+=== Type 41: TrueTime 560 IRIG-B Decoder ===
+
+Documentation has been removed from the ntpd4 web pages, but from web
+searches and context this is another obsolete product in the
+audio-decoder class from a dead vendor.
+
+Disposition: DEPRECATED and DISCONTINUED; already removed.
+
+=== Type 42: Zyfer GPStarplus Receiver ===
+
+Live product with a supporting vendor.  100ns accuracy.
+
+Disposition: Move to refclockd.
+
+=== Type 43: RIPE NCC interface for Trimble Palisade ===
+
+Requires custom hardware no longer being made.
+
+Disposition: INTRINSIC.
+
+=== Type 44: NeoClock4X - DCF77 / TDF serial line ===
+
+This is a radio clock synchronized to DCF77 and thus has 2ms jitter.
+I found a source page at http://www.linux-funkuhr.de/ that suggests
+by a small software company "Linum Software GmbH" for Linux hosts.
+It may still be available.
+
+Disposition: Move to refclockd.
+
+=== Type 45: Spectracom TSync PCI ===
+
+Spectracom is a product line of of time sources that is still 
+available and supported by a vendor.  The TSync is a GPS clock 
+with a specified accuracy of 100ns.
+
+Disposition: Move to refclockd.
+
+=== Type 46: GPSD NG client protocol ===
+
+IPC driver, to be retained.
+
+== Summary
+
+For hardware marked "<2000?" the date it was end-of-lifed cannot
+be determined cetainly but was almost certainly in the last century.
+
+.Hardware status summary 
+|===============================================================
+| 1  | DEPRECATED, INACCURATE
+| 2  | DEPRECATED, DISCONTINUED (<2000?), UNAVAILABLE
+| 3  | INTRINSIC, DISCONTINUED (<2000?), UNAVAILABLE, INACCURATE
+| 4  | -
+| 5  | DISCONTINUED (<2000?)
+| 6  | INACCURATE
+| 7  | INACCURATE
+| 8  | -
+| 9  | DISCONTINUED (1994), UNAVAILABLE
+| 10 | DISCONTINUED (1996), UNAVAILABLE
+| 11 | -
+| 12 | UNDOCUMENTED, DISCONTINUED (<2000?), UNAVAILABLE
+| 13 | DISCONTINUED (<2005), INACCURATE
+| 14 | DEPRECATED and DISCONTINUED (<2000?)
+| 16 | DISCONTINUED (<2000?)
+| 17 | UNDOCUMENTED, DEPRECATED, DISCONTINUED (<2000?), UNAVAILABLE
+| 19 | DISCONTINUED (<1992), UNAVAILABLE, INACCURATE
+| 20 | REDUNDANT
+| 21 | INTRINSIC, DEPRECATED, DISCONTINUED (<2000?)
+| 26 | DISCONTINUED (2005?)
+| 27 | DISCONTINUED (<2000?), UNAVAILABLE, INACCURATE
+| 29 | REDUNDANT
+| 30 | REDUNDANT
+| 31 | REDUNDANT
+| 32 | INTRINSIC, DISCONTINUED (<2000?), UNAVAILABLE, INACCURATE
+| 33 | INACCURATE
+| 34 | INTRINSIC, DISCONTINUED (>2004,<2015) and INACCURATE
+| 35 | DISCONTINUED (<2010), UNAVAILABLE
+| 36 | INACCURATE
+| 37 | DISCONTINUED (<2000), INACCURATE
+| 38 | DISCONTINUED (<2001).
+| 39 | -
+| 40 | -
+| 41 | DEPRECATED, DISCONTINUED
+| 42 | -
+| 43 | INTRINSIC
+| 44 | -
+| 45 | -
+|===============================================================
+
+== Second-round triage ==
+
+.Potentially viable drivers
+|==========================================================
+|Type 4: Spectracom WWVB/GPS Receivers (WWVB_SPEC)
+|Type 8: Generic Reference Driver (PARSE)
+|Type 11: Arbiter 1088A/B GPS Receiver (GPS_ARBITER)
+|Type 18: NIST/USNO/PTB Modem Time Services (ACTS_MODEM)
+|Type 26: Hewlett Packard 58503A GPS Receiver (GPS_HP)
+|Type 28: Shared Memory Driver (SHM)
+|Type 39: hopf GPS/DCF77 6039 for PCI-Bus (HOPF_P)
+|Type 40: JJY Receivers (JJY)
+|Type 42: Zyfer GPStarplus Receiver
+|Type 44: NeoClock4X - DCF77 / TDF serial line
+|Type 45: Spectracom TSync PCI
+|Type 46: GPSD NG client protocol
+|==========================================================
+
+The Type 4 driver supports recent Spectracom GPS clocks, if I can
+believe their protocol documentation.  But Spectracom no longer
+makes WWVB receivers; this needs to be renamed "Spectracom Type 2 
+protocol".
+
+Types 28 and 46 are no-brainers to keep.  We will eventually want to
+deprecate the SHM driver in favor of the JSON one.  That needs to be
+described as a future direction in the documentation.
+
+Kludgy PPS support in ntpd may compromise types 4, 8, and 45. This
+is an issue we need to keep an eye on.
+
+== Policy consequences ==
+
+The 1.0 version of this document contained a technical policy proposal
+but no conclusions.  It was, essentially, to remove all drivers tagged
+INTRINSIC, DEPRECATED, OBSOLETE, REDUNDANT, and INACCURATE, but
+allow for reinstatement of merely OBSOLETE drivers on demonstration of 
+a real-world use case.
+
+At that time the proposed obsolescence timeout was ten years.  I noted
+that there is only one driver for hardware that has been discontinued,
+but possibly too recently - Type 35; the date it was end-of-lifed is
+unclear.  I have continued to designate it OBSOLETE, as its reliance
+on a parallel port means it is extremely likely to have been
+discontinued before 2008.
+
+Susan Sons, acting as program manager, changed the timeout to seven
+years.  She endorsed the exception that obsolete drivers may be 
+reinstated if and when specific users demonstrate a need for them.
+
+To date, there has been one such reinstatement: the Hewlett Packard
+58503A (type 26), requested by Hal Murray.
+
+Accordingly, the list under "Potentially viable drivers" is the list
+to be retained in the cleanup release of NTP.  This list may be 
+revised as we receive new information.
+
+== Appendix: Test equipment available ==
+
+Harlan Stenn reports:
+
+-------------------------------------------------------------------
+Here at my lab I have:
+
+- Meinberg LANtime M600
+- SEL-2407
+- Sure GPS
+- ublox
+
+At ISC we have:
+
+- Meinberg GPS167BGT
+- - IRIG Audio
+- - Serial with no PPS
+- - Serial with PPS
+- - DCF77 output
+- Meinberg DCF77 receiver
+- Trimble Acutime 2000
+
+I think we have a Trimble Acutime Gold as well, but no cable for it.
+
+> |==========================================================
+> |Type 4: Spectracom WWVB/GPS Receivers (WWVB_SPEC)
+> |Type 11: Arbiter 1088A/B GPS Receiver (GPS_ARBITER)
+
+Dave Mills might have these two, but I have no idea if they're up and
+running and there's no good way to access them at his place.  If they
+are up and running I might be able to get logs for you.
+
+> |Type 42: Zyfer GPStarplus Receiver
+
+I had one of these back when I wrote the driver, but I haven't seen one
+since.  There is no maintainer for this refclock, so if a problem is
+found with it I'll ping the manufacturer and either they'll fix it or
+I'll deprecate the driver.  I wrote this driver because Zyfer had a
+customer (the NSA) who asked for it.  I haven't heard a word about this
+
+-------------------------------------------------------------------
+
+== History ==
+
+Version 1.0, 2015-03-03::
+	Initial version.
+
+Version 1.1, 2015-03-06::
+	Dropped type 22, reinstated type 26. Added hardware status summary.
+
+Version 1.2, 2015-03-10::
+	Added section on policy and conclusions. ACTS is still used
+	for backup at government Stratum 1 sites, so keep it.
+
+Version 1.3, 2015-06-16::
+	Minor typo fixes.
+
+Version 1.4, 2015-06-30::
+	Add DEPRECATED tags to three refclocks because they are
+	undocumented. Note that driver 2 was already gone and that
+	13, 14, 17, 21, and 41 have already been removed.
+
+// end
+

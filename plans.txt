@@ -1,0 +1,80 @@
+= What we plan to do =
+
+== Improve the documentation ==
+
+NTP Classic's documentation is an untidy, confusing heap of details
+that is intimidating to novices and confusing even to experts.  We
+know how to do better at both
+http://www.catb.org/gpsd/time-service-intro.html[Introductory] and
+http://www.catb.org/gpsd/gpsd-time-service-howto.html[Intermediate]
+levels and will apply that knowledge to NTPsec.
+
+== Create a real end-to-end test suite ==
+
+Our team has a concentration of expertise in software testing.
+NTP Classic never had rigorous unit and end-to-end tests that
+could be run out of the box to verify the correctness of the code.
+Putting such a suite fully in place is one of our early goals.
+
+== Hammer the bug list flat ==
+
+The NTP Classic codebase had accumulated serious
+vulnerabilities. We've worked overtime to identify and plug the
+critical holes; more needs to be done on the lesser ones. Our goal is
+to reach the exceptionally low defect-per-thousand-hour rates of GPSD
+and RTEMS; we have the people and the skills to do it.
+
+== Throw away more code ==
+
+Antoine de Saint-Exup&eacute;ry famously said "Perfection is achieved,
+not when there is nothing more to add, but when there is nothing left
+to take away."  This is our project motto.  The more code we can throw
+away, the fewer potential vulnerabilities and complexity issues we
+will have.  There are many opportunities here; see our
+file:removal-plan.html[removal plans], and holler if we're removing
+something you need.
+
+== Broaden community participation ==
+
+The NTP Classic project slid into decline, developing serious
+vulnerabilities it was unable to effectively address, because it made
+choices that closed it off from the wider open-source community.
+NTPSec was forked in large part to reverse those bad choices. We want
+more community participation, more open-source code review, and we'll
+even welcome drive-by patches to address point problems.
+
+== Build a hardware test lab ==
+
+Precision clock sources are tricky things, and testing in a simulation
+environment has limits. We aim to build a lab where we can
+remote-control refclocks and a network of ntpd instances for
+live testing.  This will take money: see
+file:getting-involved.html[Getting Involved] for how you can help.
+
+== Deep refactoring ==
+
+The code can be further hardened by repartitioning it into smaller,
+more loosely coupled pieces. A prime opprtunity is by divorcing clock
+management from the synchronization algorithms into a separate
+refclockd.
+
+== Get it all IPV6-ready ==
+
+Network Time protocol is unhealthily entangled with IPV4.  As address
+exhaustion forces the world towards IPv6, this needs to be fixed.
+
+== Recruit and educate a new generation ==
+
+NTP Classic came altogether too close to becoming a black hole of
+unmaintainability because only one human being fully understood the
+Byzantine clock-synchronization algorithms at its core.  For
+sustainability, that knowledge needs to become more widely spread.
+
+image::clocktower64.png[align="center"]
+
+The software tasks on this list will be done on the 2.x branch.
+You should probably read file:lines-of-development.html[Lines of
+development] next.
+
+//end
+

@@ -1,0 +1,36 @@
+= Lines of development =
+
+Any software project that is as life- and mission critical as NTP
+experiences a powerful tension between pressure to evolve rapidly abd
+pressure to change in only very conservative ways.  On the one hand,
+some users are extremely conservative and can adopt new code only
+after a difficult certification procedure; others with different
+tradeoffs will disqualify a project that develops too slowly
+towards the capabilities they desire.
+
+For NTPsec this tension is only increased by the fact that the NTP
+Classic codebase we inherited had fallen into serious disrepair.
+
+To resolve this tension, NTPsec will ship releases from two distinct
+lines of development.
+
+The 1.x line will be aimed at legacy users.  Security and urgent
+bug fixes will be applied to it, but neither new features nor
+new porting work will be.  If you have strict technical or
+procedural requirements for backward compatibility, use 1.x,
+but be aware of the tradeoff that it will get little or no
+functional improvement and may never achieve the security
+level of seriously hardened code.
+
+The 2.x line will press forward on code hardening, functional
+improvements, and new features. Some 1.x features will be
+file:removal-plan.html[removed] from 2.x - this is a deliberate
+choice to reduce complexity and attack surface (remember, "Perfection
+is achieved ... when there is nothing left to take away").
+
+We expect 1.x and 2.x to interoperate smoothly in normal
+circumstances, but their control and monitoring tools may
+diverge over time.
+
+//end
+
