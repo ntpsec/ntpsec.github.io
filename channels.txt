@@ -2,13 +2,11 @@
 
 //FIXME: All these channels need to be filled in/
 
-The project repository is here:
+The project repository is here: TBA
 
-Mailing lists:
+Mailing lists: TBA
 
-IRC channel:
-
-Wiki:
+IRC channel: #ntpsec at freenode
 
 // end
 

@@ -76,7 +76,7 @@ we began active cooperation with three different security-research
 groups to find and fix NTP vulnerabilities, and Daniel Franke joined
 the team as our crypto expert.
 
-In early October we began planning for an 0.9 beta release.
+In early October we began planning for an 0.90 beta release.
 
 The rest of the story has yet to be written.
 

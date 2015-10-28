@@ -28,8 +28,6 @@ link:accomplishments.html[What we've achieved]
 
 link:plans.html[What we plan to do]
 
-link:lines-of-development.html[Lines of development]
-
 link:supported-platforms.html[Supported platforms]
 
 link:core-team.html[The core team]

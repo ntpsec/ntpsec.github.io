@@ -9,7 +9,7 @@ mechanisms used in Network Time Protocol (NTP) were aging, partly
 broken, and vulnerable to attack. Recently this concern has become
 reality through a string of serious security incidents involving NTP
 servers, in many of which the servers were exploited as amplifiers for
-DDOS (distributed denial of service) attacks.
+DDoS (distributed denial of service) attacks.
 
 An accurate common timebase is vitally important for a wide range of
 uses, from financial services to autonomous vehicular navigation.
@@ -30,11 +30,11 @@ and logistical overhead).
 
 NTF, which maintains the current reference NTP implementation, has
 declined to participate in these efforts to secure the NTP software.
-Thus, members of the NTF/NTP community, led by developer and testing
-engineer Amar Takhar, have chosen to create a fork of that code base
-that will take advantage of and further iterate upon the remediation
-work being funded by the NSF, CTSC, and CACR. The ongoing work is now
-substantially funded by the Core Infrastructure Initiative (CII).
+Thus, members of the NTP community have chosen to create a fork of
+that code base that will take advantage of and further iterate upon
+the remediation work being funded by the NSF, CTSC, and CACR. The
+ongoing work is now substantially funded by the Core Infrastructure
+Initiative (CII).
 
 Thus, the NTP Security Project - familiarly, NTPsec. NTPsec will be
 a compatible upgrade from the NTF version, continuously evolved from

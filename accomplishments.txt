@@ -92,8 +92,11 @@ We have updated and reorganized the documentation::
 The NTP in-tree documentation was in terrible shape - incomplete where
 it was not actively misleading, with some parts of it that needed
 updating (such as the WHERE-TO-START file) actually unmodified since
-1998.  Though there is more to be done, we've already fixed the worst
-problems.
+1998.  It had a serious problem with different documents telling
+different stories.  We've fixed all that; every command-line switch
+and every configuration entity now has a single point of truth, also
+the manual pages and Web documentation are generated from the same
+master files.
 
 image::clocktower64.png[align="center"]
 

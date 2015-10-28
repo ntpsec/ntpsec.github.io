@@ -12,7 +12,7 @@ levels and will apply that knowledge to NTPsec.
 == Create a real end-to-end test suite ==
 
 Our team has a concentration of expertise in software testing.
-NTP Classic never had rigorous unit and end-to-end tests that
+NTP Classic never had rigorous end-to-end tests that
 could be run out of the box to verify the correctness of the code.
 Putting such a suite fully in place is one of our early goals.
 
@@ -71,10 +71,6 @@ Byzantine clock-synchronization algorithms at its core.  For
 sustainability, that knowledge needs to become more widely spread.
 
 image::clocktower64.png[align="center"]
-
-The software tasks on this list will be done on the 2.x branch.
-You should probably read link:lines-of-development.html[Lines of
-development] next.
 
 //end
 
