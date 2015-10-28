@@ -9,7 +9,7 @@ do
     then
 	echo "Rebuilding $html"
 	chmod u+w $html
-	asciidoc -b html5 -a linkcss -a stylesdir=$PWD $master
+	asciidoc -b html5 -a linkcss -a stylesdir=. $master
 	chmod a-w $html
     fi
 done
