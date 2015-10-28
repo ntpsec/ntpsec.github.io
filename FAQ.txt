@@ -34,6 +34,14 @@ Applying that GPSD and RTEMS experience to NTP combines the best in
 modern high-reliability software engineering with the proven
 excellence of the NTP Classic core algorithms.
 
+== Why do these web pages look so 1990s? ==
+
+Because that simple look is good for people with visual impairments,
+and as a tribute to Dr. David Mills, the original architext of NTP
+who is himself visually impaired.  Dr. Mills has very particular
+ideas about Web visuals, and this site is carefully styled to
+resemble his NTP documentation pages.
+
 //end
 
 
