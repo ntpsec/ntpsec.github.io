@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Project announcement</title>
+<link rel="stylesheet" href="/home/esr/software/ntp-rescue/ntpsec-site/asciidoc.css" type="text/css">
+
+
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Project announcement</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>Today, the NTP Security Project - NTPsec - launches.  This effort addresses
+a pressing problem in the Internet infrastructure, and tests a new
+model for supporting and maintaining its vital parts.</p></div>
+<div class="paragraph"><p>It has been known for some time that the authentication and security
+mechanisms used in Network Time Protocol (NTP) were aging, partly
+broken, and vulnerable to attack. Recently this concern has become
+reality through a string of serious security incidents involving NTP
+servers, in many of which the servers were exploited as amplifiers for
+DDOS (distributed denial of service) attacks.</p></div>
+<div class="paragraph"><p>An accurate common timebase is vitally important for a wide range of
+uses, from financial services to autonomous vehicular navigation.
+Accordingly, some months ago the Center for Trustworthy Scientific
+Cyberinfrastructure (CTSC) and Indiana University&#8217;s Center for Applied
+Cybersecurity Research (CACR) initiated rescue planning that included
+a range of individual experts on time service, senior NTP developers,
+and interested organizations such as the Network Time Foundation (NTF)
+the Internet Civil Engineering Institute (ICEI), and the National
+Science Foundation (NSF). The NSF approved seed funding for this work.</p></div>
+<div class="paragraph"><p>The rescue planning bore fruit in a detailed roadmap, beginning with
+breaking the NTP code base out of the proprietary Bitkeeper revision
+control system into a public git repository, where it can benefit from
+regular examination and contributions by the wider community (this
+were not previously possible due to Bitkeeper&#8217;s licensing requirements
+and logistical overhead).</p></div>
+<div class="paragraph"><p>NTF, which maintains the current reference NTP implementation, has
+declined to participate in these efforts to secure the NTP software.
+Thus, members of the NTF/NTP community, led by developer and testing
+engineer Amar Takhar, have chosen to create a fork of that code base
+that will take advantage of and further iterate upon the remediation
+work being funded by the NSF, CTSC, and CACR. The ongoing work is now
+substantially funded by the Core Infrastructure Initiative (CII).</p></div>
+<div class="paragraph"><p>Thus, the NTP Security Project - familiarly, NTPsec. NTPsec will be
+a compatible upgrade from the NTF version, continuously evolved from
+that historical reference implementation.</p></div>
+<div class="paragraph"><p>As the project name indicates, NTPsec&#8217;s early focus will be on
+security improvements.  We will also apply best practices in use of
+static-analysis tools, continuous integration, and automated testing.
+Down the road we plan deeper refactoring for security and simplicity,
+and to fully adapt the network time protocol to IPV6.</p></div>
+<div class="paragraph"><p>NTPsec begins with a core team of experienced and expert developers.
+You can read more about them on the <a href="file:core-team.html">Core
+Team</a> page.</p></div>
+<div class="imageblock" style="text-align:center;">
+<div class="content">
+<img src="clocktower64.png" alt="clocktower64.png">
+</div>
+</div>
+<div class="paragraph"><p>Have questions? Our public contact is John D. Bell &lt;<a href="mailto:jdb@systemsartisans.com">jdb@systemsartisans.com</a>&gt;,
+Google phone 567-343-0164&gt;, or via IRC at Freenode channel #icei.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2015-10-28 02:59:40 EDT
+</div>
+</div>
+</body>
+</html>

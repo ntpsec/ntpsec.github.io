@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>What we&#8217;ve accomplished</title>
+<link rel="stylesheet" href="/home/esr/software/ntp-rescue/ntpsec-site/asciidoc.css" type="text/css">
+
+
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>What we&#8217;ve accomplished</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+We have extracted the NTP codebase from BitKeeper
+</dt>
+<dd>
+<p>
+This was not a trivial achievement.  One of our team members has
+more experience doing messy repository conversions than anyone else
+alive, including gnarly and venerable projects like groff and Emacs.
+Producing a really high-quality conversion took him <strong>ten weeks</strong> of
+concentrated effort.  You can read more about
+<a href="http://esr.ibiblio.org/?p=6792">how to spot a high-quality repository
+conversion</a>; our NTP history has all the traits of good ones.
+</p>
+</dd>
+<dt class="hdlist1">
+We have significantly hardened the code against buffer overruns
+</dt>
+<dd>
+<p>
+To prevent buffer overruns, we have replaced all unsafe string
+functions (strcpy/strcat/strtok/sprintf/vsprintf/gets) with safe
+versions that take a buffer bound.
+</p>
+</dd>
+<dt class="hdlist1">
+We have removed over a hundred thousand lines of obsolete code
+</dt>
+<dd>
+<p>
+Less code means less attack surface.  Here are some things we&#8217;ve found
+to remove:
+</p>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<col style="width:50%;">
+<col style="width:50%;">
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">45.0 KLOC (20%)</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">In-tree copy of libevent2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">23.0 KLOC (10%)</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Undocumented, deprecated, or broken refclock code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">(Types 3, 12, 13, 14, 17, 19, 32, 34, 36, 37, 43)</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">24.0 KLOC (11%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Unused ISC library code</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">12.5 KLOC (5%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">libopts/autogen removal</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">9.0 KLOC (4%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Code obsolete because we assume a POSIX.1-2001/C99 base</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">9.0 KLOC (4%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Removal of ntpdc</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">2.0 KLOC (1%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Replacement of ntpdate by a shell wrapper around ntpdig</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">3.5 KLOC (2%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Miscellaneous cruft</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">130.0 KLOC (57%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><em>Total removed</em></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">97.0 KLOC (43%)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><p class="tableblock"><em>Total remaining</em></p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">227.0 KLOC (100%)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph"><p>(Totals may not sum exactly due to rounding errors.  Numbers generated
+using David A. Wheeler&#8217;s <em>SLOCCount</em>.)</p></div>
+<div class="paragraph"><p>These removals include nearly half of the bulk of ntpd, the most
+security-critical code.  And the numbers understate the size of the
+removals slightly because the way we counted "remaining" code includes
+some test code added since the repository conversion.</p></div>
+</dd>
+<dt class="hdlist1">
+We have improved the accuracy of time stepping with real hardware by x10
+</dt>
+<dd>
+<p>
+When NTP was originally written, computer clocks only delivered
+microsecond precision.  Now they deliver nanosecond precision (though
+not all of that precision is accurate).  By changing some internal
+representations we have made NTPsec able to use the full precision of
+modern clocks, which results in a factor 10 or more of accuracy
+improvement with real hardware such as GPSDOs and dedicated time
+radios.
+</p>
+</dd>
+<dt class="hdlist1">
+We have applied Coverity scanning and fixed bugs where they were revealed
+</dt>
+<dd>
+<p>
+NTP Classic had occasionally been Coverity-checked in the past, but
+those warnings were not systematically fixed.  We found 40 unresolved
+defect reports and dealt with them appropriately.
+</p>
+</dd>
+<dt class="hdlist1">
+We have fixed all compiler warnings
+</dt>
+<dd>
+<p>
+All compiler warnings have been either fixed or suppressed for
+principled reasons (like "that one is caused by a known GCC optimizer
+bug"). This may seem like a small thing, but it can have a significant
+effect on maintainability and downstream defect rates.  Noise warnings
+are a kind of undergrowth in which real warnings and the bugs that
+trigger them can lurk undetected.
+</p>
+</dd>
+<dt class="hdlist1">
+We have increased the visibility of potential defects to static analyzers
+</dt>
+<dd>
+<p>
+By well-defined transformations of the code, including improving its
+type discipline, we can give static analyzers and verification tools
+better traction to find defects and potential vulnerabilities.  We&#8217;ve
+got a good running start on this already, changing the code to use C99
+bools wherever possible and safe.
+</p>
+</dd>
+<dt class="hdlist1">
+We have moved the build to waf
+</dt>
+<dd>
+<p>
+The NTP Classic build system was 31,000 lines of impacted autotools
+cruft, a Lovecraftian nightmare of complexity that reached out from
+sunken R&#8217;lyeh to trouble the dreams of the living.  We switched to
+<a href="https://waf.io/">waf</a>, an alternative single-phase build system also
+used (among other places) by the Samba project.  Our builds got
+an order of magnitude faster, and the new build recipe is about
+1 KLOC!
+</p>
+</dd>
+<dt class="hdlist1">
+We have updated and reorganized the documentation
+</dt>
+<dd>
+<p>
+The NTP in-tree documentation was in terrible shape - incomplete where
+it was not actively misleading, with some parts of it that needed
+updating (such as the WHERE-TO-START file) actually unmodified since
+</p>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Though there is more to be done, we&#8217;ve already fixed the worst
+problems.
+</p>
+</li>
+</ol></div>
+</dd>
+</dl></div>
+<div class="imageblock" style="text-align:center;">
+<div class="content">
+<img src="clocktower64.png" alt="clocktower64.png">
+</div>
+</div>
+<div class="paragraph"><p>You should probably read <a href="file:plans.html">What we plan to do</a> next.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2015-10-28 02:59:40 EDT
+</div>
+</div>
+</body>
+</html>

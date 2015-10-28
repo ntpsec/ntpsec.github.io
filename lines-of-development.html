@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Lines of development</title>
+<link rel="stylesheet" href="/home/esr/software/ntp-rescue/ntpsec-site/asciidoc.css" type="text/css">
+
+
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Lines of development</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>Any software project that is as life- and mission critical as NTP
+experiences a powerful tension between pressure to evolve rapidly abd
+pressure to change in only very conservative ways.  On the one hand,
+some users are extremely conservative and can adopt new code only
+after a difficult certification procedure; others with different
+tradeoffs will disqualify a project that develops too slowly
+towards the capabilities they desire.</p></div>
+<div class="paragraph"><p>For NTPsec this tension is only increased by the fact that the NTP
+Classic codebase we inherited had fallen into serious disrepair.</p></div>
+<div class="paragraph"><p>To resolve this tension, NTPsec will ship releases from two distinct
+lines of development.</p></div>
+<div class="paragraph"><p>The 1.x line will be aimed at legacy users.  Security and urgent
+bug fixes will be applied to it, but neither new features nor
+new porting work will be.  If you have strict technical or
+procedural requirements for backward compatibility, use 1.x,
+but be aware of the tradeoff that it will get little or no
+functional improvement and may never achieve the security
+level of seriously hardened code.</p></div>
+<div class="paragraph"><p>The 2.x line will press forward on code hardening, functional
+improvements, and new features. Some 1.x features will be
+<a href="file:removal-plan.html">removed</a> from 2.x - this is a deliberate
+choice to reduce complexity and attack surface (remember, "Perfection
+is achieved &#8230; when there is nothing left to take away").</p></div>
+<div class="paragraph"><p>We expect 1.x and 2.x to interoperate smoothly in normal
+circumstances, but their control and monitoring tools may
+diverge over time.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2015-10-28 02:59:40 EDT
+</div>
+</div>
+</body>
+</html>

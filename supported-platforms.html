@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Platform support policy</title>
+<link rel="stylesheet" href="/home/esr/software/ntp-rescue/ntpsec-site/asciidoc.css" type="text/css">
+
+
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Platform support policy</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>The 1.x legacy branch will support whatever NTP Classic supported. The
+core team won&#8217;t be doing new porting work on 1.x.  If your build
+breaks, you need to move to 2.x.</p></div>
+<div class="paragraph"><p>Out of the box, the 2.x branch will be fully supported on Unixlike
+operating systems conforming to POSIX.1-2001 and ISO/IEC 9899:1999
+(aka C99).  Python 2.5 is also required.  This includes all current
+Linux and *BSD operating systems.</p></div>
+<div class="paragraph"><p>Hardware with 32 or 64 bits and any endianness is supported.</p></div>
+<div class="paragraph"><p>NTP Classic kept legacy support for a lot of very ancient Unix big
+iron, and for other systems such as Microsoft Windows and VMS.  But
+increasing security requires reducing complexity and attack surface.
+Our project direction is towards dropping legacy support (and unused
+or rarely-used features) in order to achieve secure simplicity.</p></div>
+<div class="paragraph"><p>If you are a stranded legacy user with security and reliability
+requirements strong enough that only NTPsec will do, our team is open
+to working with active port maintainers who will take responsibility
+for specific target environments not fully conformant to the
+POSIX.1-2001/C99/Python-2.5 combination, or for exotic hardware.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2015-10-28 02:59:40 EDT
+</div>
+</div>
+</body>
+</html>
