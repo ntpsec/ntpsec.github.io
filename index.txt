@@ -18,8 +18,7 @@ availability, and assurance requirements.
 
 Our first best practice is true open-source code review.  The NTPsec
 code is available in a public git repository. One of our goals is to
-support broader community participation than NTP Classic's use of
-the proprietary BitKeeper version-control system allowed.
+support broader community participation.
 
 Learn more:
 
