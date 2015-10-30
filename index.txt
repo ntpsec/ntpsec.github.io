@@ -10,7 +10,7 @@ Welcome to the NTPsec project - a secure, hardened, and improved
 implementation of Network Time Protocol derived from NTP Classic, Dave
 Mills's original.
 
-NTPsec, as its same implies, is a more secure NTP.  We employ best
+NTPsec, as its name implies, is a more secure NTP.  We employ best
 practices and state-of-the art technology in code auditing,
 verification, and testing to deliver code that can be used with
 confidence in deployments with the most stringent security,
