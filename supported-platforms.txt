@@ -2,6 +2,8 @@
 
 Our primary development platforms are Linux and FreeBSD.
 
+We have an actively maintained port to Mac OS X.
+
 We expect the NTPsec code to run with at most minor port changes on
 Unixlike operating systems conforming to POSIX.1-2001 and ISO/IEC
 9899:1999 (aka C99). and supporting ntp_gettime(2)/ntp_adjtime(2).
@@ -12,10 +14,11 @@ We intend to port to Windows, but that may not land in early releases.
 Hardware with 32 or 64 bits and any endianness is supported.
 
 NTP Classic kept legacy support for a lot of very ancient Unix big
-iron, and for other systems such as Microsoft Windows and VMS.  But
-increasing security requires reducing complexity and attack surface.
-Our project direction is towards dropping legacy support (and unused
-or rarely-used features) in order to achieve secure simplicity.
+iron, and for other systems such as VMS.  But increasing security
+requires reducing complexity and attack surface.  We have almost
+completely removed legacy Unix support, and our direction is towards
+dropping the remainder (along with unused or rarely-used features) in
+order to achieve secure simplicity.
 
 If you are a stranded legacy user with security and reliability
 requirements strong enough that only NTPsec will do, our team is open

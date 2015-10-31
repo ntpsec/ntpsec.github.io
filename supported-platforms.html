@@ -22,6 +22,7 @@ asciidoc.install();
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph"><p>Our primary development platforms are Linux and FreeBSD.</p></div>
+<div class="paragraph"><p>We have an actively maintained port to Mac OS X.</p></div>
 <div class="paragraph"><p>We expect the NTPsec code to run with at most minor port changes on
 Unixlike operating systems conforming to POSIX.1-2001 and ISO/IEC
 9899:1999 (aka C99). and supporting ntp_gettime(2)/ntp_adjtime(2).
@@ -29,10 +30,11 @@ Python 2.5 is also required.  We will fully support these platforms.</p></div>
 <div class="paragraph"><p>We intend to port to Windows, but that may not land in early releases.</p></div>
 <div class="paragraph"><p>Hardware with 32 or 64 bits and any endianness is supported.</p></div>
 <div class="paragraph"><p>NTP Classic kept legacy support for a lot of very ancient Unix big
-iron, and for other systems such as Microsoft Windows and VMS.  But
-increasing security requires reducing complexity and attack surface.
-Our project direction is towards dropping legacy support (and unused
-or rarely-used features) in order to achieve secure simplicity.</p></div>
+iron, and for other systems such as VMS.  But increasing security
+requires reducing complexity and attack surface.  We have almost
+completely removed legacy Unix support, and our direction is towards
+dropping the remainder (along with unused or rarely-used features) in
+order to achieve secure simplicity.</p></div>
 <div class="paragraph"><p>If you are a stranded legacy user with security and reliability
 requirements strong enough that only NTPsec will do, our team is open
 to working with active port maintainers who will take responsibility
@@ -45,7 +47,7 @@ POSIX.1-2001/C99/Python-2.5 combination, or for exotic hardware.</p></div>
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2015-10-28 04:26:41 EDT
+ 2015-10-31 09:51:21 EDT
 </div>
 </div>
 </body>
