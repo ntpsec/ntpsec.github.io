@@ -30,9 +30,9 @@ to remove:
 |   9.0 KLOC (4%)    | Code obsolete because we assume a POSIX.1-2001/C99 base
 |   9.0 KLOC (4%)    | Removal of ntpdc
 |   2.0 KLOC (1%)    | Replacement of ntpdate by a shell wrapper around ntpdig
-|   3.5 KLOC (2%)    | Miscellaneous cruft
-| 130.0 KLOC (57%)   | _Total removed_
-|  97.0 KLOC (43%)   | _Total remaining_
+|   4.5 KLOC (2%)    | Miscellaneous cruft
+| 131.0 KLOC (58%)   | _Total removed_
+|  96.0 KLOC (42%)   | _Total remaining_
 | 227.0 KLOC (100%)  | _Total at conversion time_
 |==============================================================================
 +
@@ -91,12 +91,23 @@ We have updated and reorganized the documentation::
 
 The NTP in-tree documentation was in terrible shape - incomplete where
 it was not actively misleading, with some parts of it that needed
-updating (such as the WHERE-TO-START file) actually unmodified since
-1998.  It had a serious problem with different documents telling
+updating (such as the WHERE-TO-START file) actually unmodified
+since 1998.  It had a serious problem with different documents telling
 different stories.  We've fixed all that; every command-line switch
 and every configuration entity now has a single point of truth, also
 the manual pages and Web documentation are generated from the same
 master files.
+
+We have earned trust in the InfoSec research community::
+
+NTPSec was the first NTP implementation to respond to and develop a
+fix for CVE-2015-770, the KoD off-path attack bug that achieved news
+coverage in _Ars Technica_ and elsewhere in October 2015.  Even before
+we first shipped code we participated in the mitigation and
+disclosure process on over a dozen CVEs, and developed good working
+relationships with some key players in the security community.  They
+have already learned to trust us to respond rapidly and effectively to
+vulnerability reports.
 
 image::clocktower64.png[align="center"]
 

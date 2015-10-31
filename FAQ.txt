@@ -39,7 +39,7 @@ excellence of the NTP Classic core algorithms.
 NTPsec _will_ fully interoperate with NTP Classic.  They use the same
 protocols and the same time adjustment algorithms.  User-visible
 differences are minor, and consist mostly of obsolete code being dropped
-and a few tools renamed to reduce NTPsec's footprint in gloval namespace.
+and a few tools renamed to reduce NTPsec's footprint in global namespace.
 
 == Why do these web pages look so 1990s? ==
 
