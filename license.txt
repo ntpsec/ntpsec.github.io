@@ -1,6 +1,6 @@
 = Software licenses =
 
-For hostorical reasons the code in this distribition is issued under
+For historical reasons the code in this distribition is issued under
 several different but compatible licenses.  Each will generally be
 found near a year or years of copyright declaration.
 
