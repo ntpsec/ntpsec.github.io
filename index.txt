@@ -38,6 +38,8 @@ link:channels.html[Communications channels]
 
 link:FAQ.html[The inevitable FAQ]
 
+link:license.html[Project licenses]
+
 //link:history.html[How NTPsec came to be]
 
 //end
