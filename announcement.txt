@@ -1,8 +1,8 @@
 = Project announcement =
 
-Today, the NTP Security Project - NTPsec - launches.  This effort addresses
-a pressing problem in the Internet infrastructure, and tests a new
-model for supporting and maintaining its vital parts.
+Today, the NTP Security Project - NTPsec - goes public.  This effort
+addresses a pressing problem in the Internet infrastructure, and tests
+a new model for supporting and maintaining its vital parts.
 
 It has been known for some time that the authentication and security
 mechanisms used in Network Time Protocol (NTP) were aging, partly
