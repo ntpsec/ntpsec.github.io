@@ -17,7 +17,7 @@ to be fixed, and the development practice around it reformed.
 == Why should we believe your security/reliability claims? ==
 
 The NTPsec team combines the expertise of senior developers from
-NTP Classic, the link://www.catb.org/~esr/GPSD[GPSD project], and the
+NTP Classic, the link://www.catb.org/~esr/gpsd[GPSD project], and the
 https://www.rtems.org/[RTEMS Project].
 
 GPSD has an exceptional record of reliability and security over a
@@ -44,7 +44,7 @@ and a few tools renamed to reduce NTPsec's footprint in global namespace.
 == Why do these web pages look so 1990s? ==
 
 Because that simple look is good for people with visual impairments,
-and as a tribute to Dr. David Mills, the original architext of NTP
+and as a tribute to Dr. David Mills, the original architect of NTP
 who is himself visually impaired.  Dr. Mills has very particular
 ideas about Web visuals, and this site is carefully styled to
 resemble his NTP documentation pages.

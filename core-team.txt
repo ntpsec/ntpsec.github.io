@@ -90,13 +90,14 @@ fiction.
 Joel specializes in safety-critical, high integrity systems.
 
 Dr. Joel Sherrill has worked on a variety of safety-critical real-time
-embedded systems for almost thirty years and an has been active participant in
-the free software community for most of that. Joel is one of the original
-authors and project lead for RTEMS.org, a free real-time operating system.
-In addition to being a contributor to multiple free software projects,
-Joel is a founding member of the Steering Committee for the Free
-Software Foundation's GNU Compiler Collection (GCC) and has served on
-the Network Time Foundation Board.
+embedded systems for almost thirty years and an has been active
+participant in the open-source software community for most of
+that. Joel is one of the original authors and project lead for
+RTEMS.org, a free real-time operating system.  In addition to being a
+contributor to multiple free software projects, Joel is a founding
+member of the Steering Committee for the Free Software Foundation's
+GNU Compiler Collection (GCC) and has served on the Network Time
+Foundation Board.
 
 In his copious free time Joel travels, hosts parties, and helps
 maintain the unofficial Elvis Costello fan site.

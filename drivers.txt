@@ -310,7 +310,7 @@ Disposition: INTRINSIC; Remove
 === Type 26: Hewlett Packard 58503A GPS Receiver (GPS_HP) ===
 
 Support for two discontinued HP time sources, not updated since 2005.
-Used units can be found on the Web.  Accuracy cited as better than 1us
+Used units can be found on the Web.  Accuracy cited as better than 1&micro;s
 when GPS-locked, drift of better than 10ms in holdover mode. Some
 are available on eBay.
 
@@ -461,9 +461,9 @@ Disposition: INTRINSIC.
 === Type 44: NeoClock4X - DCF77 / TDF serial line ===
 
 This is a radio clock synchronized to DCF77 and thus has 2ms jitter.
-I found a source page at http://www.linux-funkuhr.de/ that suggests
-by a small software company "Linum Software GmbH" for Linux hosts.
-It may still be available.
+I found a source page at http://www.linux-funkuhr.de/ that suggests it
+was written by a small software company "Linum Software GmbH" for
+Linux hosts.  It may still be available.
 
 Disposition: Move to refclockd.
 
