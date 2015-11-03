@@ -49,14 +49,14 @@ documentation removed (13, 14, 17).
 |==============================================================
 
 In addition, support for WWVB and OMEGA has been removed from
-Type 5 (TrueTime) driver. Support for GPS and GOES has been retained.
+the Type 5 (TrueTime) driver. Support for GPS and GOES has been retained.
 
 You may be unable to build NTPsec on a sufficiently archaic big-iron
 Unix platform.  Support for the native APIs of any version that last
 shipped in the last century has been removed. The codebase assumes
 full POSIX.1-2001 and C99 conformance including ANSI pthreads; in some
 cases you may be able to meet this requirement by upgrading to a
-modern GCC- or clang-based toolchain
+modern GCC- or clang-based toolchain.
 
 Platform-dependent kernel-space code that raised potential security
 issues has been removed.  No programs access /dev/kmem directly any
@@ -69,11 +69,11 @@ at us.  Likewise for VxWorks.
 
 == Suppressed code ==
 
-While we are not removed the Windows code, we will not ship with
+While we have not removed the Windows code, we will not ship with
 Windows supported until that platform has an active port maintainer.
 
 An implementation of the Autokey public-key-based authentication
-system is still present in the codebasee, but we don't support
+system is still present in the codebase, but we don't support
 building with it. This feature is broken and has serious security
 vulnerabilities.  One of our longer-term projects is to re-engineer
 it.
@@ -107,7 +107,7 @@ Thus, we plan to remove the following refclock drivers:
 |Type 20: Generic NMEA GPS Receiver (NMEA)
 |Type 27: Arcron MSF Receiver (MSF_ARCRON)
 |Type 29: Trimble Navigation Palisade GPS (GPS_PALISADE)
-|Type 30: Motorola UT Oncore GPS GPS_ONCORE)
+|Type 30: Motorola UT Oncore GPS (GPS_ONCORE)
 |Type 31: Rockwell Jupiter GPS (GPS_JUPITER)
 |Type 33: Dumb Clock (DUMBCLOCK)
 |Type 35: Conrad Parallel Port Radio Clock (PCF)

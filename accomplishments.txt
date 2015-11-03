@@ -24,7 +24,7 @@ to remove:
 |==============================================================================
 |  45.0 KLOC (20%)   | In-tree copy of libevent2
 |  23.0 KLOC (10%)   | Undocumented, deprecated, or broken refclock code
-|                      (Types 3, 12, 13, 14, 17, 19, 32, 34, 36, 37, 43)
+                       (Types 3, 12, 13, 14, 17, 19, 32, 34, 36, 37, 43)
 |  24.0 KLOC (11%)   | Unused ISC library code
 |  12.5 KLOC (5%)    | libopts/autogen removal
 |   9.0 KLOC (4%)    | Code obsolete because we assume a POSIX.1-2001/C99 base
@@ -101,7 +101,7 @@ master files.
 We have earned trust in the InfoSec research community::
 
 NTPSec was the first NTP implementation to respond to and develop a
-fix for CVE-2015-770, the KoD off-path attack bug that achieved news
+fix for CVE-2015-7704, the KoD off-path attack bug that achieved news
 coverage in _Ars Technica_ and elsewhere in October 2015.  Even before
 we first shipped code we participated in the mitigation and
 disclosure process on over a dozen CVEs, and developed good working

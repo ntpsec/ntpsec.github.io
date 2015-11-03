@@ -54,13 +54,13 @@ link:getting-involved.html[Getting Involved] for how you can help.
 == Deep refactoring ==
 
 The code can be further hardened by repartitioning it into smaller,
-more loosely coupled pieces. A prime opprtunity is by divorcing clock
+more loosely coupled pieces. A prime opportunity is by divorcing clock
 management from the synchronization algorithms into a separate
 refclockd.
 
 == Get it all IPV6-ready ==
 
-Network Time protocol is unhealthily entangled with IPV4.  As address
+Network Time Protocol is unhealthily entangled with IPv4.  As address
 exhaustion forces the world towards IPv6, this needs to be fixed.
 
 == Recruit and educate a new generation ==

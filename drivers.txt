@@ -18,11 +18,12 @@ NTP's driver inventory contains several different classes of precision
 time sources.  The software is now around 40 years old, and some of
 those classes are now obsolescent or semi-obsolescent.
 
-See "Introduction to Time Service" for terminology, device classes,
-and accuracy.  The summary version is that inexpensive 1PPS-capable
-GPS devices have a nearly overwhelming cost-effectivenee advantage
-over older time source types, and the utility of supporting those
-older types is accordingly plummeting.
+See http://www.catb.org/gpsd/time-service-intro.html[Introduction to
+Time Service]" for terminology, device classes, and accuracy.  The
+summary version is that inexpensive 1PPS-capable GPS devices have a
+nearly overwhelming cost-effectivenee advantage over older time source
+types, and the utility of supporting those older types is accordingly
+plummeting.
 
 I think it is actually seriously questionable whether support for
 *any* of these legacy devices is worth maintaining.  No hardware
@@ -39,13 +40,14 @@ can.  I will return to this issue.
 
 == Objectives and criteria ==
 
-Two of our main objectives is the ntpd resue are (1) to eliminate security
+Two of our main objectives in the ntpd resue are (1) to eliminate security
 vulnerabilities and (2) move the code to a maintainable state.  An
 effective way of accomplishing both would be to outright remove as
 much code as possible from ntpd.
 
 ntpd includes no fewer than 46 device drivers for local clock sources.
-Some effective means of removing code would be to
+Some effective means of removing code would be to remove drivers which
+are obsolescent by the following criteria:
 
 INTRINSIC::
 	Remove hardware that can no longer work for intrinsic technical reasons.
@@ -72,7 +74,7 @@ REDUNDANT::
 INACCURATE::
 	Remove GPS drivers and time radios for which the hardware offers no
 	better source accuracy than a timing GPS available for less than
-	$75 in 2015; that is, about 5us.  (However, do not necessarily
+	$75 in 2015; that is, about 5&micro;s.  (However, do not necessarily
 	remove poorer-performing GPS-conditioned *clocks*, as they continue
 	to supply time in holdover mode when the GPS cannot get satellite lock.)
 
@@ -82,9 +84,8 @@ methods for peer time-source programs in ntpd itself.
 == First-round triage ==
 
 The following lists the drivers in ntpd4, categorizes them, and
-recommends a disposition for each. It's based on this list:
-
-link://www.eecis.udel.edu/~mills/ntp/html/refclock.html
+recommends a disposition for each. It's based on the master list
+from the NTP Classic documentation.
 
 Types 15, 23, 24, and 25 are not listed because they are reserved and
 not in use.
@@ -104,11 +105,11 @@ documentation.  There is no refclock implementation for it.
 Web searches reach one copy of the technical manual dating from 1994
 and preserved here:
 
-link://www.to-way.com/tf/trak8820a.pdf
+http://www.to-way.com/tf/trak8820a.pdf
 
 All other references are to copies of old ntpd documentation. I
 conclude that this hardware is extremely obsolete and
-discontinued before well before 2000.
+discontinued well before before 2000.
 
 Disposition: Fails tests DEPRECATED, DISCONTINUED, UNAVAILABLE; Remove.
 
@@ -134,7 +135,7 @@ I could not find any for sale on the Web.  This hardware
 would no longer work even if a specimen could be found, due to WWVB's
 modulation change as described in the next entry.
 
-Disposition: Fails test INTRINSIC, DISCONTINUED, UNAVAILABLE, and 
+Disposition: Fails tests INTRINSIC, DISCONTINUED, UNAVAILABLE, and 
 INACCURATE; Remove.
 
 === Type 4: Spectracom WWVB/GPS Receivers (WWVB_SPEC) ===
@@ -142,10 +143,10 @@ INACCURATE; Remove.
 Since WWVB changed its modulation scheme in January 2013
 Spectracom WWVB receivers from before that date no longer function.
 The models covered by this driver (Model 8170, Netclock/2 WWVB) are in
-this category.  Spectracomm has not produced any new time-radio gear
+this category.  Spectracom has not produced any new time-radio gear
 since the modulation change.
 
-However, the Spectracomm 9300 (still in production and support)
+However, the Spectracom 9300 (still in production and support)
 is a GPS clock that can emit the type 0 and 2 formats recognized
 by this driver.
 
@@ -168,7 +169,7 @@ Disposition: DISCONTINUED; Remove.
 This driver is a very, very bad idea given flesh. It demodulates an
 *audio signal* emitted by several radio time sources, requiring custom
 wiring to connect to a microphone or line-in port.  All for
-accuracy two orders of magnitude worse (500uSec) than a cheap 1PPS GPS
+accuracy two orders of magnitude worse (500&micro;s) than a cheap 1PPS GPS
 and no holdover capability.
 
 Disposition: INACCURATE; Remove.
@@ -207,7 +208,7 @@ Disposition: Fails tests DISCONTINUED, UNAVAILABLE; Remove.
 
 === Type 11: Arbiter 1088A/B GPS Receiver (GPS_ARBITER) ===
 
-Arbiter systems is still alive at link://www.arbiter.com/
+Arbiter systems is still alive at http://www.arbiter.com/
 
 With 100ns worst-case accuracy relative to 1PPS this is still a viable
 time source.
@@ -235,7 +236,7 @@ Propagation jitter in the POTS network dooms any chance this could
 even match the performance of a cheap serial GPS. Remnant units are
 available on eBay and electronics remainder sites.
 
-Disposition: DEPRECATED, DISCONTINUED and INACCURATE; already removed.
+Disposition: DEPRECATED, DISCONTINUED, and INACCURATE; already removed.
 
 === Type 14: EES M201 MSF Receiver (MSF_EES) ===
 
@@ -267,7 +268,7 @@ Disposition: DEPRECATED, DISCONTINUED, UNAVAILABLE; already removed.
 The USNO timer service still nominally exists, but requires a
 Hayes-compatible 1200bps modem, hardware now 20 years obsolete:
 
-link://tycho.usno.navy.mil/modem_time.html
+http://tycho.usno.navy.mil/modem_time.html
 
 It claims 4ms jitter (before propagation delays in the POTS network).
 Retain because it might be useful in holdover mode.
@@ -301,8 +302,8 @@ it could still have been potentially useful in some very odd
 situations - the documentation mentions "the vicinity of Mars".
 
 However, Hal Murray reports that the PPS support in ntpd is "kludgy"
-and needs to be fixed.  That say to me that this driver is too
-broken to be worth saving.  
+and needs to be fixed.  That says to me that this driver is too
+broken to be worth saving.
 
 Disposition: INTRINSIC; Remove
 
@@ -325,7 +326,7 @@ Disposition: DISCONTINUED; move to refclockd.
 
 Obsolete time source, noted in 2003 posting
 
-link://comp.protocols.time.ntp.narkive.com/0sT20Wjc/trimble-s-acutime-2000-compared-to-arcron-msf
+http://comp.protocols.time.ntp.narkive.com/0sT20Wjc/trimble-s-acutime-2000-compared-to-arcron-msf
 
 to be "not very good" and inferior to a common Trimble GPS.  The
 vendor is gone.  Web searches do not find units for sale.
@@ -376,7 +377,7 @@ Disposition: INACCURATE; Remove.
 A discontinued time radio.  Most recent references on the
 Web are from 2008; still on sale in 2004.  This posting
 
-link://fixunix.com/ntp/337036-ultralink-325-wwvb-receiver.html
+http://fixunix.com/ntp/337036-ultralink-325-wwvb-receiver.html
 
 notes that accuracy is bad compared to a GPS.  Would no
 longer work due to the WWVB modulation change.
@@ -409,7 +410,7 @@ Disposition: DISCONTINUED, INACCURATE; Remove.
 
 The list of all Hopf products at 
 
-link://www.hopf.com/en/index_article_en.html
+http://www.hopf.com/en/index_article_en.html
 
 does not list the Hopf 6021. Because the 6039 still shipping issued
 in 2001 or earlier it is almost certain that the 6021 was discontinued
@@ -460,7 +461,7 @@ Disposition: INTRINSIC.
 === Type 44: NeoClock4X - DCF77 / TDF serial line ===
 
 This is a radio clock synchronized to DCF77 and thus has 2ms jitter.
-I found a source page at link://www.linux-funkuhr.de/ that suggests
+I found a source page at http://www.linux-funkuhr.de/ that suggests
 by a small software company "Linum Software GmbH" for Linux hosts.
 It may still be available.
 

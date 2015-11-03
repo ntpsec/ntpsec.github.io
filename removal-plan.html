@@ -98,13 +98,13 @@ width:100%;
 </tbody>
 </table>
 <div class="paragraph"><p>In addition, support for WWVB and OMEGA has been removed from
-Type 5 (TrueTime) driver. Support for GPS and GOES has been retained.</p></div>
+the Type 5 (TrueTime) driver. Support for GPS and GOES has been retained.</p></div>
 <div class="paragraph"><p>You may be unable to build NTPsec on a sufficiently archaic big-iron
 Unix platform.  Support for the native APIs of any version that last
 shipped in the last century has been removed. The codebase assumes
 full POSIX.1-2001 and C99 conformance including ANSI pthreads; in some
 cases you may be able to meet this requirement by upgrading to a
-modern GCC- or clang-based toolchain</p></div>
+modern GCC- or clang-based toolchain.</p></div>
 <div class="paragraph"><p>Platform-dependent kernel-space code that raised potential security
 issues has been removed.  No programs access /dev/kmem directly any
 longer, and STREAMS support for the parse driver has been deleted.</p></div>
@@ -117,10 +117,10 @@ at us.  Likewise for VxWorks.</p></div>
 <div class="sect1">
 <h2 id="_suppressed_code">Suppressed code</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>While we are not removed the Windows code, we will not ship with
+<div class="paragraph"><p>While we have not removed the Windows code, we will not ship with
 Windows supported until that platform has an active port maintainer.</p></div>
 <div class="paragraph"><p>An implementation of the Autokey public-key-based authentication
-system is still present in the codebasee, but we don&#8217;t support
+system is still present in the codebase, but we don&#8217;t support
 building with it. This feature is broken and has serious security
 vulnerabilities.  One of our longer-term projects is to re-engineer
 it.</p></div>
@@ -192,7 +192,7 @@ width:100%;
 <td class="tableblock halign-left valign-top" ><p class="tableblock">Type 29: Trimble Navigation Palisade GPS (GPS_PALISADE)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" ><p class="tableblock">Type 30: Motorola UT Oncore GPS GPS_ONCORE)</p></td>
+<td class="tableblock halign-left valign-top" ><p class="tableblock">Type 30: Motorola UT Oncore GPS (GPS_ONCORE)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><p class="tableblock">Type 31: Rockwell Jupiter GPS (GPS_JUPITER)</p></td>
@@ -270,7 +270,7 @@ width:100%;
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2015-10-28 03:37:07 EDT
+ 2015-11-03 06:05:08 EST
 </div>
 </div>
 </body>

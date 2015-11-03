@@ -24,7 +24,7 @@ Learn more:
 
 link:announcement.html[Project announcement]
 
-link:accomplishments.html[What we've achieved]
+link:accomplishments.html[What we've accomplished]
 
 link:plans.html[What we plan to do]
 
