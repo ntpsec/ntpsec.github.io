@@ -58,7 +58,7 @@ more loosely coupled pieces. A prime opportunity is by divorcing clock
 management from the synchronization algorithms into a separate
 refclockd.
 
-== Get it all IPV6-ready ==
+== Get it all IPv6-ready ==
 
 Network Time Protocol is unhealthily entangled with IPv4.  As address
 exhaustion forces the world towards IPv6, this needs to be fixed.

@@ -18,8 +18,8 @@ NTP's driver inventory contains several different classes of precision
 time sources.  The software is now around 40 years old, and some of
 those classes are now obsolescent or semi-obsolescent.
 
-See http://www.catb.org/gpsd/time-service-intro.html[Introduction to
-Time Service]" for terminology, device classes, and accuracy.  The
+See http://www.catb.org/gpsd/time-service-intro.html["Introduction to
+Time Service"] for terminology, device classes, and accuracy.  The
 summary version is that inexpensive 1PPS-capable GPS devices have a
 nearly overwhelming cost-effectivenee advantage over older time source
 types, and the utility of supporting those older types is accordingly
@@ -40,7 +40,7 @@ can.  I will return to this issue.
 
 == Objectives and criteria ==
 
-Two of our main objectives in the ntpd resue are (1) to eliminate security
+Two of our main objectives in the ntpd rescue are (1) to eliminate security
 vulnerabilities and (2) move the code to a maintainable state.  An
 effective way of accomplishing both would be to outright remove as
 much code as possible from ntpd.
@@ -115,7 +115,7 @@ Disposition: Fails tests DEPRECATED, DISCONTINUED, UNAVAILABLE; Remove.
 
 === Type 3: PSTI/Traconex 1020 WWV/WWVH Receiver (WWV_PST) ===
 
-This device is described here: link://prc68.com/I/PST1020.shtml with a
+This device is described http://prc68.com/I/PST1020.shtml[here] with a
 2005 note that it is "not very reliable" having drifted by a full minute.
 
 Investigating the vendor site at U.S. Traffic Corp (now Peek Traffic)
