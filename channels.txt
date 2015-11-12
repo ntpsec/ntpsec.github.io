@@ -1,14 +1,12 @@
 = Communications channels =
 
-//FIXME: All these channels need to be filled in/
+The project repository is here: git://oldtimer.ntpsec.org/data/git/ntpsec.git
 
-The project repository is here: TBA
-
-Mailing lists: TBA
+Mailing lists: http://lists.ntpsec.org/mailman/listinfo/
 
 Bugtracker: https://gitlab.com/NTPsec/ntpsec/issues
 
-IRC channel: #ntpsec at freenode
+IRC channel: irc://chat.freenode.net/#irker[#ntpsec at freenode]
 
 // end
 
