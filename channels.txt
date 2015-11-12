@@ -6,6 +6,8 @@ The project repository is here: TBA
 
 Mailing lists: TBA
 
+Bugtracker: https://gitlab.com/NTPsec/ntpsec/issues
+
 IRC channel: #ntpsec at freenode
 
 // end
