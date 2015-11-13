@@ -1,6 +1,6 @@
 = Communications channels =
 
-The project repository is here: git://github.com/ntpsec/ntpsec.github.io.git
+The project repository is here: git://github.com/ntpsec/ntpsec.git
 
 Mailing lists: http://lists.ntpsec.org/mailman/listinfo/
 
