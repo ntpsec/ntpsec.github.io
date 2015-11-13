@@ -6,7 +6,7 @@ Mailing lists: http://lists.ntpsec.org/mailman/listinfo/
 
 Bugtracker: https://gitlab.com/NTPsec/ntpsec/issues
 
-IRC channel: irc://chat.freenode.net/#irker[#ntpsec at freenode]
+IRC channel: irc://chat.freenode.net/#ntpsec[#ntpsec at freenode]
 
 // end
 
