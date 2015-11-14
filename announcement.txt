@@ -14,12 +14,15 @@ DDoS (distributed denial of service) attacks.
 An accurate common timebase is vitally important for a wide range of
 uses, from financial services to autonomous vehicular navigation.
 Accordingly, some months ago the Center for Trustworthy Scientific
-Cyberinfrastructure (CTSC) and Indiana University's Center for Applied
-Cybersecurity Research (CACR) initiated rescue planning that included
-a range of individual experts on time service, senior NTP developers,
-and interested organizations such as the Network Time Foundation (NTF)
-the Internet Civil Engineering Institute (ICEI), and the National
-Science Foundation (NSF). The NSF approved seed funding for this work.
+Cyberinfrastructure (http://trustedci.org/[CTSC]) and Indiana
+University's Center for Applied Cybersecurity Research
+(http://cacr.iu.edu/[CACR]) initiated rescue planning that included a
+range of individual experts on time service, senior NTP developers,
+and interested organizations such as the Network Time Foundation
+(http://www.networktimefoundation.org/[NTF]) the Internet Civil
+Engineering Institute (https://icei.org[ICEI]), and the National
+Science Foundation (http://www.nsf.gov/[NSF]). The NSF approved seed
+funding for this work.
 
 The rescue planning bore fruit in a detailed roadmap, beginning with
 breaking the NTP code base out of the proprietary BitKeeper revision
@@ -34,7 +37,7 @@ Thus, members of the NTP community have chosen to create a fork of
 that code base that will take advantage of and further iterate upon
 the remediation work funded by the NSF, CTSC, and CACR. The ongoing
 work is now substantially funded by the Linux Foundation's Core
-Infrastructure Initiative (CII).
+Infrastructure Initiative (https://www.coreinfrastructure.org/[CII]).
 
 Thus, the NTP Security Project - familiarly, NTPsec. NTPsec will be
 a compatible upgrade from the NTF version, continuously evolved from

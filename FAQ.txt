@@ -36,7 +36,7 @@ excellence of the NTP Classic core algorithms.
 
 == Will NTPsec fully interoperate with NTP Classic?  ==
 
-NTPsec _will_ fully interoperate with NTP Classic.  They use the same
+NTPsec _already_ fully interoperates with NTP Classic.  They use the same
 protocols and the same time adjustment algorithms.  User-visible
 differences are minor, and consist mostly of obsolete code being dropped
 and a few tools renamed to reduce NTPsec's footprint in global namespace.

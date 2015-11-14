@@ -7,7 +7,7 @@ more experience doing messy repository conversions than anyone else
 alive, including gnarly and venerable projects like groff and Emacs.
 Producing a really high-quality conversion took him *ten weeks* of
 concentrated effort.  You can read more about
-link://esr.ibiblio.org/?p=6792[how to spot a high-quality repository
+http://esr.ibiblio.org/?p=6792[how to spot a high-quality repository
 conversion]; our NTP history has all the traits of good ones.
 
 We have significantly hardened the code against buffer overruns::
@@ -58,7 +58,8 @@ We have applied Coverity scanning and fixed bugs where they were revealed::
 
 NTP Classic had occasionally been Coverity-checked in the past, but
 those warnings were not systematically fixed.  We found 40 unresolved
-defect reports and dealt with them appropriately.
+defect reports and dealt with them appropriately.  We have a policy
+shipping only with zero Coverity defects. 
 
 We have fixed all compiler warnings::
 
@@ -101,9 +102,10 @@ master files.
 We have earned trust in the InfoSec research community::
 
 NTPSec was the first NTP implementation to respond to and develop a
-fix for CVE-2015-7704, the KoD off-path attack bug that achieved news
-coverage in _Ars Technica_ and elsewhere in October 2015.  Even before
-we first shipped code we participated in the mitigation and
+fix for CVE-2015-7704, the KoD off-path attack bug that achieved
+http://arstechnica.com/security/2015/10/new-attacks-on-network-time-protocol-can-defeat-https-and-create-chaos/[news
+coverage in _Ars Technica_] and elsewhere in October 2015.  Even
+before we first shipped code we participated in the mitigation and
 disclosure process on over a dozen CVEs, and developed good working
 relationships with some key players in the security community.  They
 have already learned to trust us to respond rapidly and effectively to
