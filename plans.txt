@@ -39,7 +39,7 @@ something you need.
 The NTP Classic project slid into decline, developing serious
 vulnerabilities it was unable to effectively address, because it made
 choices that closed it off from the wider open-source community.
-NTPSec was forked in large part to reverse those bad choices. We want
+NTPSec was forked in large part to reverse those choices. We want
 more community participation, more open-source code review, and we'll
 even welcome drive-by patches to address point problems.
 

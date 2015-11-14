@@ -1,12 +1,17 @@
 = Communications channels =
 
-The project repository is here: git://github.com/ntpsec/ntpsec.git
+The project Git repository: https://gitlab.com/NTPsec/ntpsec.git
 
 Mailing lists: http://lists.ntpsec.org/mailman/listinfo/
 
 Bugtracker: https://gitlab.com/NTPsec/ntpsec/issues
 
 IRC channel: irc://chat.freenode.net/#ntpsec[#ntpsec at freenode]
+
+Information and Press contact: mailto:contact@ntpsec.org
+
+Security reporting contact: mailto:security@ntpsec.org
+
 
 // end
 

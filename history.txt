@@ -58,10 +58,10 @@ Internet infrastructure to be allowed to fall further into decay.
 The team began work to fulfill the NSF's grant terms, migrating the
 history to git and showing measurable progress towards
 security-hardening the code. We also began to quietly prepare for a
-public project launch.  In June 2015 we gained funding from the Core
-Infrastructure Initiative.  Around the same time Dr. Joel Sherrill,
-learning of our effort and its goals, resigned from the Network
-Time Foundation board and joined our team.
+public project launch.  In June 2015 we gained funding from the Linux
+Foundation's Core Infrastructure Initiative.  Around the same time
+Dr. Joel Sherrill, learning of our effort and its goals, resigned from
+the Network Time Foundation board and joined our team.
 
 Through the late summer and fall of 2015 the team worked on the
 massive cleanup required to remove obsolete code, fix documentation,
@@ -70,13 +70,14 @@ NTP Classic codebase and significantly security-hardened what was
 left.  We changed build systems from autoconf to waf for a dramatic
 improvement in build times and repeatability.
 
-In late September Mark Atwood of CII stepped up to manage the project,
+In late September Mark Atwood stepped up to manage the project,
 freeing Amar to concentrate on his technical work.  Shortly after that
 we began active cooperation with three different security-research
 groups to find and fix NTP vulnerabilities, and Daniel Franke joined
 the team as our crypto expert.
 
-In early October we began planning for an 0.90 beta release.
+In early October we began planning for an 0.90 beta release. That
+release is scheduled for November 16th.
 
 The rest of the story has yet to be written.
 
