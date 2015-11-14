@@ -25,6 +25,9 @@ asciidoc.install();
 <div class="paragraph"><p>We specifically invite and welcome the scrutiny and participation of
 responsible security researchers.  Please, inspect the code, abuse the
 APIs, fuzz the sockets, and attack the network traffic.</p></div>
+<div class="paragraph"><p>If you are a security research organization, we invite you to contact
+us even before you have anything to report, so we can set up a working
+relationship, and exchange keys.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -41,6 +44,11 @@ known keyservers, and has the following id and fingerprint:</p></div>
 Key fingerprint = B09A 8CAB E180 EC66 4CC5  11D8 2A7C 3E36 CC28 2DBE
 uid NTPsec Security Reporting &lt;security@ntpsec.org&gt;</pre>
 </div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_our_responsiveness_goals">Our Responsiveness Goals</h2>
+<div class="sectionbody">
 <div class="paragraph"><p>Our goal is to ack receipt within 24 hours, verify each potential
 vulnerability within 3 days, and if the vulnerability is a significant
 network risk, such as remote execution, denial of service, network
@@ -50,15 +58,19 @@ days.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reporter_responsible_disclosure_policies">Reporter Responsible Disclosure Policies</h2>
+<h2 id="_honoring_reporter_responsible_disclosure_policies">Honoring Reporter Responsible Disclosure Policies</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>We honor responsible disclosure policies and embargos requested by
 responsible security researchers and security research organizations.</p></div>
 <div class="paragraph"><p>Vulnerabilities properly reported to us are tracked in a controlled
 access issue tracker.  Development of fixes is done in private Git
-repos. Issues and fixes will opened to the public when the reasonable
-embargo expires.</p></div>
-<div class="paragraph"><p>If we receive vulnerability reports that are duplicates, we will put
+repos.</p></div>
+<div class="paragraph"><p>When the reasonable embargo period expires, we will promptly merge the
+fixes to our public repos, and will cut a new release.</p></div>
+<div class="paragraph"><p>If a vulnerability becomes publically known before the embargo
+expires, we will notify the reporter, and then will promptly merge the
+fixes to our public repos, and will cut a new release.</p></div>
+<div class="paragraph"><p>If we receive a vulnerability report that is a duplicate, we will put
 the reporters in contact with each other, and then will honor the
 shortest embargo.</p></div>
 </div>
@@ -67,13 +79,12 @@ shortest embargo.</p></div>
 <h2 id="_our_responsible_disclosure_policies">Our Responsible Disclosure Policies</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>As NTPsec is currently in developer pre-release and is not yet
-deployed in production, we current have no responsible disclosure or
+deployed in production, we currently have no responsible disclosure or
 embargo policies of our own.  As we find issues and vulnerabilities
-ourselves and by regular contributors, we will verify and fix on our
+ourselves and by ordinary contributors, we will verify and fix on our
 existing development and release cadence, in our public issue tracker
 and on our public Git repositories.</p></div>
-<div class="paragraph"><p>Once NTPsec is in production use on the public internet or by
-significant users in their own datacenters, we will work towards an
+<div class="paragraph"><p>Once NTPsec is in production use, we will work towards an
 industry standard best practices Responsible Disclosure and Embargo
 Policy.</p></div>
 <div class="imageblock" style="text-align:center;">
@@ -87,7 +98,7 @@ Policy.</p></div>
 <div id="footnotes"><hr></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-11-14 05:04:11 PST
+Last updated 2015-11-14 05:18:53 PST
 </div>
 </div>
 </body>
