@@ -36,6 +36,8 @@ link:getting-involved.html[How you can help]
 
 link:channels.html[Communications channels]
 
+link:security.html[Security Researchers and Vulnerability Reports]
+
 link:FAQ.html[The inevitable FAQ]
 
 link:license.html[Project licenses]

@@ -1,0 +1,65 @@
+= Security Researchers and Vulnerability Reports =
+
+== Invitation to Responsible Security Researchers ==
+
+We specifically invite and welcome the scrutiny and participation of
+responsible security researchers.  Please, inspect the code, abuse the
+APIs, fuzz the sockets, and attack the network traffic.
+
+== Reporting Vulnerabilities ==
+
+Please report discovered vulnerabiltites to mailto:security@ntpsec.org.
+
+This email alias forwards to a very small cadre of the internal NTPsec
+team.
+
+You may GPG encrypt your report. The GPG key can be found on the well
+known keyservers, and has the following id and fingerprint:
+
+----------------------------------------------------------------
+pub 4096R/CC282DBE 2015-09-29 [expires: 2018-09-13]
+Key fingerprint = B09A 8CAB E180 EC66 4CC5  11D8 2A7C 3E36 CC28 2DBE
+uid NTPsec Security Reporting <security@ntpsec.org>
+----------------------------------------------------------------
+     
+Our goal is to ack receipt within 24 hours, verify each potential
+vulnerability within 3 days, and if the vulnerability is a significant
+network risk, such as remote execution, denial of service, network
+amplification, or corruption of time reporting, develop a fix within 7
+days.
+
+Our experience so far is that we are much faster than that.
+
+== Reporter Responsible Disclosure Policies ==
+
+We honor responsible disclosure policies and embargos requested by
+responsible security researchers and security research organizations.
+
+Vulnerabilities properly reported to us are tracked in a controlled
+access issue tracker.  Development of fixes is done in private Git
+repos. Issues and fixes will opened to the public when the reasonable
+embargo expires.
+
+If we receive vulnerability reports that are duplicates, we will put
+the reporters in contact with each other, and then will honor the
+shortest embargo.
+
+== Our Responsible Disclosure Policies ==
+
+As NTPsec is currently in developer pre-release and is not yet
+deployed in production, we current have no responsible disclosure or
+embargo policies of our own.  As we find issues and vulnerabilities
+ourselves and by regular contributors, we will verify and fix on our
+existing development and release cadence, in our public issue tracker
+and on our public Git repositories.
+
+Once NTPsec is in production use on the public internet or by
+significant users in their own datacenters, we will work towards an
+industry standard best practices Responsible Disclosure and Embargo
+Policy.
+
+
+image::clocktower64.png[align="center"]
+
+//end
+
