@@ -34,6 +34,8 @@ link:core-team.html[The core team]
 
 link:getting-involved.html[How you can help]
 
+link:contributor.html[Contribution workflow and conventions]
+
 link:channels.html[Communications channels]
 
 link:security.html[Security Researchers and Vulnerability Reports]

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Contribution workflow and conventions</title>
+<link rel="stylesheet" href="./asciidoc.css" type="text/css">
+
+
+<script type="text/javascript" src="./asciidoc.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Contribution workflow and conventions</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_gitlab_com_is_our_forge">GitLab.com is our forge</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>We use GitLab.com as our forge.</p></div>
+<div class="paragraph"><p>Our GitLab group is at <a href="https://gitlab.com/groups/NTPsec">https://gitlab.com/groups/NTPsec</a></p></div>
+<div class="paragraph"><p>Please used the issue tracker and the pull request process at GitLab.com.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_github_com_is_a_mirror_not_our_forge">GitHub.com is a mirror, not our forge</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>We maintain a public mirror of the repo at <a href="https://github.com/ntpsec/ntpsec">https://github.com/ntpsec/ntpsec</a></p></div>
+<div class="paragraph"><p>Please do not use GitHub issues or GitHub pull requests.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hacking_guide">Hacking guide</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Please read and follow the &#8230;/devel/hacking.txt file in the ntpsec repo.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_license_of_contributions">License of contributions</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Annoying but necessary legalese:</p></div>
+<div class="literalblock">
+<div class="content monospaced">
+<pre>By submitting patches to this project, you agree to allow them to be
+redistributed under the project's license according to the normal
+forms and usages of the open-source community.</pre>
+</div></div>
+<div class="paragraph"><p>The license of new code is to be BSD-2-clause and the license for new
+documentation is to be Creative Commons Attribute 4.0 License.
+Contributions and patches with no license information will be assumed
+to be under those licenses.</p></div>
+<div class="paragraph"><p>Please do <strong>not</strong> submit code under GPL or other licenses which place
+conditions on derived works; we cannot accept such code.</p></div>
+<div class="paragraph"><p>It is your responsibility to make sure you have the necessary rights
+to contribute a patch to the project.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_development_practice">Development Practice</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Before starting significant work, propose it first in the
+mailto:devel@ntpsec.org mailing list.  Other people may have
+suggestions, will want to collaborate, and will wish to review your
+code.</p></div>
+<div class="paragraph"><p>Please work on one piece of conceptual work at a time.  Keep each
+narrative of work each in a different branch.</p></div>
+<div class="paragraph"><p>As much as possible, have each patch solve one problem.</p></div>
+<div class="paragraph"><p>A patch needs to comfortably fit in a reviewer&#8217;s head.</p></div>
+<div class="paragraph"><p>A patch must not leave the project in a non-functional state.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_optional_send_patches_by_email">Optional: Send patches by email</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>If you do not want to use GitLab pull requests, we welcome simple fix
+and "drive by" patches submitted by email.</p></div>
+<div class="paragraph"><p>Please create the patch with git format-patch against the tip of
+master of the main public repo.</p></div>
+<div class="paragraph"><p>You can email your patch to mailto:devel@ntpsec.org if are a member of
+that mailing list, or you can email your patch to
+mailto:contact@ntpsec.org if you do not.</p></div>
+<div class="paragraph"><p>Please make sure your "From:" header in the email is correct, as that
+is what will be used as attribution of the commit.</p></div>
+<div class="paragraph"><p>The person on the team that merges in your patch will use the git
+parameter ---author from the email&#8217;s From header and the git parameter
+--date from the email&#8217;s Date header.</p></div>
+<div class="paragraph"><p>For complex patches and contribtion narratives, please use GitLab.</p></div>
+<div class="sect2">
+<h3 id="_commit_comments">Commit comments</h3>
+<div class="paragraph"><p>And please follow git conventions for change comments. That means your comment
+should consist of:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A summary line, never more than 69 characters long and ideally no more than
+  50 characters long.  These numbers are set by the window sizes of various
+  common web views of git repositories.
+</p>
+</li>
+<li>
+<p>
+Your summary line should be terse and imperative.  "Fix bug #666" "Add DWIM
+  feature" and "Typo repair" are good summary lines.
+</p>
+</li>
+<li>
+<p>
+If your comment is longer than the summary line, separate it from
+  the summary with a blank line.
+</p>
+</li>
+<li>
+<p>
+The remainder of your comment should be one or more paragraphs line-wrapped at
+  72 characters - please do <strong>not</strong> enter entire paragraphs as single lines, it
+  makes life more difficult for browsing tools and people viewing the output of
+  git format-patch. Bulleted list items are also OK.
+</p>
+</li>
+<li>
+<p>
+In some cases it may be appropriate to end your summary line with a comma
+  or ellipsis ("&#8230;") to indicate that it runs dictly into a following paragraph.
+  You should still try to make the summary self-contained when you do this.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Finally, it is not necessary (and is in fact bad style) to list all
+the files a multi-file commit touches in the comment for it.  The
+--name-status, --name-only, and --stat options of git log will report
+this information to users who want it.  It is still appropriate
+to list a file path if you have something specific to say about that
+individual file, or if it&#8217;s the only one touched in a single-file
+change and you can easily fit it in the summary line along with your
+summary.</p></div>
+<div class="paragraph"><p>Yes, we know the pre-git portions of the history violate some of these.
+That was then, this is now.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_refer_to_previous_commits">How to refer to previous commits</h3>
+<div class="paragraph"><p>The best (most human-friendly) way to reference a commit is by quoting its
+summary line.  If you need to disambiguate, give its date and author.</p></div>
+<div class="paragraph"><p>The worst way is to quote its git hash, because humans are not good at
+keeping random strings of hex digits in working memory.  Besides, hashes
+will break if the history is ever moved to another VCS or the repository
+has to be surgically altered.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2015-11-14 13:18:02 PST
+</div>
+</div>
+</body>
+</html>
