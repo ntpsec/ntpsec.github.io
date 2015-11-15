@@ -21,34 +21,32 @@ NTP Security Project is updating.
 
 Development of NTPsec is currently being funded by the Linux
 Foundation's Core Infrastructure Initiative, which was formed in the
-wake of the "Heartbeat Bug".
+wake of the "Heartbleed Bug".
 
 == Press Releases ==
 
-link:pressrelease-20151116.html[2015-11-16 NTP Security Project announces public development release]
+- link:pressrelease-20151116.html[2015-11-16 NTP Security Project announces public development release]
 
 == Press Articles and Reports ==
 
-Information Week: Linux Foundation Funds NTP (http://www.informationweek.com/cloud/infrastructure-as-a-service/linux-foundation-funds-ntps-father-time/d/d-id/1321775/[link])
-
-ZD Net: Saving NTP (http://www.zdnet.com/article/saving-time-the-funding-of-ntp/[link])
-
-Center for Trustworthy Scientific Cyberinfrastructure, Year Three Report, Section 4.11 - Network Time Protocol (https://www.scholarworks.iu.edu/dspace/bitstream/handle/2022/20401/CTSC%20Year%203%20Report_v3ASC.pdf/[link])
+- Information Week: Linux Foundation Funds NTP (http://www.informationweek.com/cloud/infrastructure-as-a-service/linux-foundation-funds-ntps-father-time/d/d-id/1321775/[link])
+- ZD Net: Saving NTP (http://www.zdnet.com/article/saving-time-the-funding-of-ntp/[link])
+- Center for Trustworthy Scientific Cyberinfrastructure, Year Three Report, Section 4.11 - Network Time Protocol (https://www.scholarworks.iu.edu/dspace/bitstream/handle/2022/20401/CTSC%20Year%203%20Report_v3ASC.pdf/[link])
 
 == Contact Information ==
 
 For more information, please directly contact:
 
-Mark Atwood
-Project Manager pro-tem
-NTP Security Project
+Mark Atwood +
+Project Manager pro-tem +
+NTP Security Project +
 mailto:mark.atwood@ntpsec.org
 
 and
 
-Emily Ratliff
-Senior Director of Infrastructure Security
-The Linux Foundation
+Emily Ratliff +
+Senior Director of Infrastructure Security +
+The Linux Foundation +
 mailto:eratliff@linuxfoundation.org
 
 
