@@ -8,9 +8,9 @@ Bugtracker: https://gitlab.com/NTPsec/ntpsec/issues
 
 IRC channel: irc://chat.freenode.net/#ntpsec[#ntpsec at freenode]
 
-Information and Press contact: mailto:contact@ntpsec.org
+Information and Press contact: mailto:contact@ntpsec.org[contact@ntpsec.org]
 
-Security reporting contact: mailto:security@ntpsec.org
+Security reporting contact: mailto:security@ntpsec.org[security@ntpsec.org]
 
 
 // end
