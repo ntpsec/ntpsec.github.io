@@ -6,9 +6,9 @@
 
 We use GitLab.com as our forge.
 
-Our GitLab group is at https://gitlab.com/groups/NTPsec
+Our GitLab.com group is at https://gitlab.com/groups/NTPsec
 
-Please used the issue tracker and the pull request process at GitLab.com.
+Please use the issue tracker and the pull request process at that GitLab.com group.
 
 == GitHub.com is a mirror, not our forge ==
 
