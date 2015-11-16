@@ -23,7 +23,7 @@ RFC 5907, has been removed.  In a future release we would be open to
 replacing it with a conformant implementation.
 
 The long-deprecated ntpdate program has been replaced with a shell
-wrapper around sntp.
+wrapper around ntpdig.
 
 We have removed the following refclock drivers, which were either
 broken and won't compile on modern systems (12, 21), or irretrievably
