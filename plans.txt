@@ -5,8 +5,8 @@
 NTP Classic's documentation is an untidy, confusing heap of details
 that is intimidating to novices and confusing even to experts.  We
 know how to do better at both
-https://www.catb.org/gpsd/time-service-intro.html[Introductory] and
-https://www.catb.org/gpsd/gpsd-time-service-howto.html[Intermediate]
+https://www.catb.org/gpsd/www/time-service-intro.html[Introductory] and
+https://www.catb.org/gpsd/www/gpsd-time-service-howto.html[Intermediate]
 levels and will apply that knowledge to NTPsec.
 
 == Create a real end-to-end test suite ==
