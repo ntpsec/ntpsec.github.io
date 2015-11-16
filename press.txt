@@ -29,25 +29,33 @@ wake of the "Heartbleed Bug".
 
 == Press Articles and Reports ==
 
-- Information Week: Linux Foundation Funds NTP (http://www.informationweek.com/cloud/infrastructure-as-a-service/linux-foundation-funds-ntps-father-time/d/d-id/1321775 [link])
-- ZD Net: Saving NTP (http://www.zdnet.com/article/saving-time-the-funding-of-ntp [link])
-- Center for Trustworthy Scientific Cyberinfrastructure, Year Three Report, Section 4.11 - Network Time Protocol (https://www.scholarworks.iu.edu/dspace/bitstream/handle/2022/20401/CTSC%20Year%203%20Report_v3ASC.pdf [link])
+- Information Week: Linux Foundation Funds NTP (http://www.informationweek.com/cloud/infrastructure-as-a-service/linux-foundation-funds-ntps-father-time/d/d-id/1321775)
+- ZD Net: Saving NTP (http://www.zdnet.com/article/saving-time-the-funding-of-ntp)
+- Center for Trustworthy Scientific Cyberinfrastructure, Year Three Report, Section 4.11 - Network Time Protocol (https://www.scholarworks.iu.edu/dspace/bitstream/handle/2022/20401/CTSC%20Year%203%20Report_v3ASC.pdf)
 
 == Contact Information ==
 
-For more information, please directly contact:
+For more information, contacts are:
 
 Mark Atwood +
 Project Manager pro-tem +
 NTP Security Project +
-mailto:mark.atwood@ntpsec.org
+mailto:mark.atwood@ntpsec.org[mark.atwood@ntpsec.org]
+
+and
+
+John D. Bell +
+Evangelism, Outreach, and Training Coordinator +
+Internet Civil Engineering Institute (https://icei.org[ICEI]) +
++1-567-343-0164 +
+mailto:outreach@icei.org[outreach@icei.org]
 
 and
 
 Emily Ratliff +
 Senior Director of Infrastructure Security +
-The Linux Foundation +
-mailto:eratliff@linuxfoundation.org
+The Linux Foundation, Core Infrastructure Initiative (https://www.coreinfrastructure.org/[CII]) +
+mailto:eratliff@linuxfoundation.org[eratliff@linuxfoundation.org]
 
 
 image::clocktower64.png[align="center"]
